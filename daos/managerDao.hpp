@@ -1,6 +1,6 @@
 #include <iostream>
 
-class DaoManager{
+class managerDao{
     private:
     
     public:
