@@ -1,8 +1,12 @@
 #include <iostream>
 #include <string>
+#include "daos/managerDao.hpp"
 
-int main()
-{
+int main(){
+    try {
+
+    // ManagerDao managerDao;
+
     int escolha = -1;
     while (escolha != 0){
         std::cout << "Escolha uma das opcoes abaixo\n";
@@ -15,6 +19,8 @@ int main()
         case 1:
 
             break;
+        case 2:
+        
         case 0:
             std::cout <<"Programa finalizado";
             break;
@@ -23,5 +29,11 @@ int main()
             break;
         }
     }
+    
+    } catch(const char *e) {
+        std::cout << "Nao foi possivel executar: " << e;
+        return 1;
+    }
+
     return 0;
 }

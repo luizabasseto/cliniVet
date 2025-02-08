@@ -11,7 +11,7 @@ int Animal::getId(){
     return id;
 }
 
-void Animal::setId(int id) {
+void Animal::setId(int id) { //adicionar algo pra gerar o id diferente que havíamos conversado?
     this->id = id;
 }
 

@@ -2,6 +2,8 @@
 #include <string>  // Para usar string
 #include <iostream>  // Para usar cout
 
+#pragma once
+
 // Estrutura para representar a data de nascimento
 struct Data {
     int dia;
@@ -27,4 +29,6 @@ public:
     char getSexo();
     void setSexo(char sexo);
     void toString();
+    
+    void gerarHistoricoMedico();
 };

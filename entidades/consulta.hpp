@@ -1,13 +1,9 @@
 #include <iostream>
 #include <vector>
-#include <animal.hpp>
+#include "animal.cpp"
 
-struct Data {
-    int dia;
-    int mes;
-    int ano;
-};
-typedef struct Data Data;
+#pragma once
+
 class Consulta{
     int id;
     Data horarioConsulta; 
@@ -17,7 +13,7 @@ class Consulta{
     Animal* animal;
     // o tutor precisa mesmo estar vinculado à consulta? o animal já não basta?
 public:
-    Consulta(int id, Data data, char* anamnese, float peso, char status, Animal* animal);
+    Consulta(int id, Data data, std::string anamnese, float peso, char status, Animal* animal);
     int getIdConsulta();
     void setIdConsulta(int idConsulta);
     Data getHorarioConsulta();
@@ -31,4 +27,10 @@ public:
     void toString();
     Animal* getAnimal();
     void setAnimal(Animal* animal);
+    //adicionar médico veterinário?
+
+    void cancelarConsulta();
+    void remarcarConsulta(Data novaData);
+    void finalizarConsulta();
+
 };
