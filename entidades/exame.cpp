@@ -81,13 +81,15 @@ void Exame::setExame(Exame* exame) {
     this->status = exame->status;
 }
 
+//esse método é usado para criar um exame quando o encaminhamento é feito
 void Exame::criarExame() {
     this->resultado = "";
     this->status = 'N'; // N = Não feito
     std::cout << "Exame criado com sucesso!" << std::endl;
 }
 
-void Exame::registrarResultado() {
+//esse método é usado quando o resultado ficou pronto
+void Exame::setResultadoExame() {
     if (status == 'N') {
         std::cout << "Digite o resultado do exame: ";
         std::getline(std::cin, resultado);

@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include "daos/managerDao.hpp"
+#include "daos/daoManager.hpp"
 
 int main(){
     try {

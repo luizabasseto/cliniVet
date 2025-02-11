@@ -38,7 +38,7 @@ public:
     Exame* getExame();
     void setExame(Exame* exame);
 
-    void criarExame(); //adiciona tudo, exceto resultado, com status de não feito
-    void registrarResultado(); //adiciona resultado, data de realização e muda status para feito
+    void criarExame(); 
+    void setResultadoExame(); 
 
 };
