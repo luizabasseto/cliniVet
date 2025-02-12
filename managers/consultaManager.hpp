@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include "../entidades/consulta.hpp"
+#include "../daos/daoManager.hpp"
 
 class ConsultaManager{
     DaoManager* daoManager;

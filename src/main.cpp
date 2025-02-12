@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
-#include "daos/daoManager.hpp"
-#include "managers/consultaManager.hpp"
+#include "../daos/daoManager.hpp"
+#include "../managers/consultaManager.hpp"
 
 int main()
 {
