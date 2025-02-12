@@ -2,11 +2,11 @@
 #include <string>
 #include "exame.hpp"
 
-Exame::Exame(int idExame, Data dataRealizado, Animal* animal, Encaminhamento* encaminhamento, std::string resultado, char status) {
+Exame::Exame(int idExame, Data dataRealizado, int idAnimal, int idEncaminhamento, std::string resultado, char status) {
     this->id = idExame; 
     this->dataRealizado = dataRealizado;
-    this->animal = animal;
-    this->encaminhamento = encaminhamento;
+    this->idAnimal = idAnimal;
+    this->idEncaminhamento = idEncaminhamento;
     this->resultado = resultado;
     this->status = status;
 }
@@ -27,20 +27,20 @@ void Exame::setDataExame(Data dataRealizado) {
     this->dataRealizado = dataRealizado; 
 }
 
-Animal* Exame::getAnimalDoExame() {
-    return animal;
+int Exame::getIdAnimalDoExame() {
+    return idAnimal;
 }
 
-void Exame::setAnimalDoExame(Animal* animal) {
-    this->animal = animal;
+void Exame::setIdAnimalDoExame(int idAnimal) {
+    this->idAnimal = idAnimal;
 }
 
-Encaminhamento* Exame::getEncaminhamento() {
-    return encaminhamento;
+int Exame::getIdEncaminhamento() {
+    return idEncaminhamento;
 }
 
-void Exame::setEncaminhamento(Encaminhamento* encaminhamento) {
-    this->encaminhamento = encaminhamento;
+void Exame::setIdEncaminhamento(int idEncaminhamento) {
+    this->idEncaminhamento = idEncaminhamento;
 }
 
 std::string Exame::getResultado() { 
@@ -60,42 +60,10 @@ void Exame::setStatus(char status) {
 }
 
 void Exame::toString() {
-    std::cout << "Exame ID: " << id << "\n";
-    std::cout << "Encaminhamento ID: " << encaminhamento << "\n";
-    std::cout << "Data de Realização: " << dataRealizado.dia << "/" << dataRealizado.mes << "/" << dataRealizado.ano << "\n";
-    std::cout << "Animal ID: " << (animal ? std::to_string(animal->getId()) : "N/A") << "\n";
-    std::cout << "Resultado: " << resultado << "\n";
-    std::cout << "Status: " << (status == 'F' ? "Feito" : "Não feito") << "\n";
-}
-
-Exame* Exame::getExame() { 
-    return this; 
-}
-
-void Exame::setExame(Exame* exame) {
-    this->id = exame->id;
-    this->dataRealizado = exame->dataRealizado;
-    this->animal = exame->animal;
-    this->encaminhamento = exame->encaminhamento;
-    this->resultado = exame->resultado;
-    this->status = exame->status;
-}
-
-//esse método é usado para criar um exame quando o encaminhamento é feito
-void Exame::criarExame() {
-    this->resultado = "";
-    this->status = 'N'; // N = Não feito
-    std::cout << "Exame criado com sucesso!" << std::endl;
-}
-
-//esse método é usado quando o resultado ficou pronto
-void Exame::setResultadoExame() {
-    if (status == 'N') {
-        std::cout << "Digite o resultado do exame: ";
-        std::getline(std::cin, resultado);
-        status = 'F'; // F = Feito
-        std::cout << "Resultado registrado com sucesso!" << std::endl;
-    } else {
-        std::cout << "Este exame já foi registrado." << std::endl;
-    }
+    std::cout << "Exame ID: " << id << std::endl;
+    std::cout << "Encaminhamento ID: " << idEncaminhamento << std::endl;
+    std::cout << "Data de Realização: " << dataRealizado.dia << "/" << dataRealizado.mes << "/" << dataRealizado.ano << std::endl;
+    std::cout << "Animal ID: " << idAnimal << std::endl;
+    std::cout << "Resultado: " << resultado << std::endl;
+    std::cout << "Status: " << (status == 'F' ? "Feito" : "Não feito") << std::endl;
 }

@@ -1,45 +1,47 @@
 #include <iostream>
-#include <string>
-//#include "funcionario.hpp" 
-//#include "medicoVeterinario.hpp" 
+#include <vector>
+#include "encaminhamento.hpp" 
+#include "animal.hpp"
 
-struct Data {
-    int dia;
-    int mes;
-    int ano;
-};
+// Implementação do construtor
+Encaminhamento::Encaminhamento(int idEncaminhamento, Data dataRequisicao, std::string documentoRequisicao, int recebeRequisicao, int requisitor) {
+    this->id = idEncaminhamento;
+    this->dataRequisicao = dataRequisicao;
+    this->documentoRequisicao = documentoRequisicao;
+    this->recebeRequisicao = recebeRequisicao;
+    this->requisitor = requisitor;
+}
 
-class Encaminhamento {
-private:
-    int id;
-    std::string documentoRequisicao;
-    Data dataRequisicao;
-    //Funcionario* recebeRequisicao; 
-    //MedicoVeterinario* requisitor; 
+// Implementação dos getters e setters
+int Encaminhamento::getIdEncaminhamento() {
+    return id;
+}
 
-public:
-    //Funcionario* recebeRequisicao, MedicoVeterinario* requisitor)
-    Encaminhamento(int idEncaminhamento, Data dataRequisicao, std::string documentoRequisicao);
+void Encaminhamento::setIdEncaminhamento(int idEncaminhamento) {
+    this->id = idEncaminhamento;
+}
 
-    int getIdEncaminhamento();
-    void setIdEncaminhamento(int idEncaminhamento);
+Data Encaminhamento::getDataRequisicao() {
+    return dataRequisicao;
+}
 
-    Data getDataRequisicao();
-    void setDataRequisicao(Data dataRequisicao);
+void Encaminhamento::setDataRequisicao(Data dataRequisicao) {
+    this->dataRequisicao = dataRequisicao;
+}
 
-    std::string getDocumentoRequisicao();
-    void setDocumentoRequisicao(std::string documentoRequisicao);
+std::string Encaminhamento::getDocumentoRequisicao() {
+    return documentoRequisicao;
+}
 
-    // Funcionario* getRecebeRequisicao();
-    // void setRecebeRequisicao(Funcionario* funcionario);
+void Encaminhamento::setDocumentoRequisicao(std::string documentoRequisicao) {
+    this->documentoRequisicao = documentoRequisicao;
+}
 
-    // MedicoVeterinario* getRequisitor();
-    // void setRequisitor(MedicoVeterinario* medicoVeterinario);
-
-    void toString();
-    Encaminhamento* getEncaminhamento();
-    void setEncaminhamento(Encaminhamento* encaminhamento);
-    // Funcionario* funcionario, MedicoVeterinario* medicoVeterinario,
-    void registrarRequisicao(std::string documento);
-
-};
+// Implementação do método toString
+void Encaminhamento::toString() {
+    std::cout << "ID Encaminhamento: " << id << std::endl
+              << "Documento Requisicao: " << documentoRequisicao << std::endl
+              << "Data Requisicao: " << dataRequisicao.toString() << std::endl
+              << "Recebe Requisicao (Funcionario ID): " << recebeRequisicao << std::endl
+              << "Requisitor (Funcionario ID): " << requisitor << std::endl;
+}

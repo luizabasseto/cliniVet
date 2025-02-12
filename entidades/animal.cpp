@@ -42,6 +42,6 @@ void Animal::setSexo(char sexo) {
 void Animal::toString(){
     std::cout << "ID: " << id << std::endl;
     std::cout << "Nome: " << nome << std::endl;
-    std::cout << "Data de Nascimento: " << dataNascimento.dia << "/" << dataNascimento.mes << "/" << dataNascimento.ano << std::endl;
+    std::cout << "Data de Nascimento: " << dataNascimento.toString() << std::endl;
     std::cout << "Sexo: " << (sexo == 'M' ? "Masculino" : "Feminino") << std::endl;
 }

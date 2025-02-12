@@ -10,23 +10,23 @@ class Exame{
     Data dataRealizado;
     std::string resultado;
     char status;
-    Animal* animal;
-    Encaminhamento* encaminhamento;
+    int idAnimal; 
+    int idEncaminhamento;
     
 
 public:
-    Exame(int idExame, Data dataRealizado, Animal* animal, Encaminhamento* encaminhamento, std::string resultado, char status);
+    Exame(int idExame, Data dataRealizado, int idAnimal, int idEncaminhamento, std::string resultado, char status);
     int getIdExame();
     void setIdExame(int idExamed);
 
     Data getDataExame();
     void setDataExame(Data dataRealizado);
 
-    Animal* getAnimalDoExame();
-    void setAnimalDoExame(Animal* animal);
+    int getIdAnimalDoExame();
+    void setIdAnimalDoExame(int idAnimal);
 
-    Encaminhamento* getEncaminhamento();
-    void setEncaminhamento(Encaminhamento* encaminhamento);
+    int getIdEncaminhamento();
+    void setIdEncaminhamento(int idEncaminhamento);
 
     std::string getResultado();
     void setResultado(std::string peso);

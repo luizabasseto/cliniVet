@@ -1,15 +1,9 @@
 
 #include <string>  // Para usar string
 #include <iostream>  // Para usar cout
+#include "../entidades/data.hpp"
 
 #pragma once
-
-// Estrutura para representar a data de nascimento
-struct Data {
-    int dia;
-    int mes;
-    int ano;
-};
 
 class Animal {
 private:

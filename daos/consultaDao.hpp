@@ -1,10 +1,11 @@
 #include <vector>
 #include "../entidades/consulta.hpp"
+#include "../entidades/data.hpp"
 
 class ConsultaDao{
     std::vector<Consulta> consultas = {
-        Consulta(1, {10, 12, 2024}, "Consulta de Rotina", 22.5, 'A', new Animal(1, "Rex", {15, 8, 2015}, 'M')),
-        Consulta(2, {12, 12, 2024}, "Exame de Sangue", 25.0, 'P', new Animal(2, "Bella", {20, 5, 2017}, 'F'))
+        Consulta(1, Data(10, 1, 2),  "", 0, 'P', 2, 1),
+        Consulta(2,  Data(12, 1, 2), "", 0, 'P', 1, 1)
     };
     public:
         void create(Consulta consulta);
@@ -13,3 +14,8 @@ class ConsultaDao{
         Consulta retrieve(int idConsulta);
         std::vector<Consulta> list();
 };
+
+
+
+
+

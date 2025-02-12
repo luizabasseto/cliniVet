@@ -7,12 +7,12 @@ class Encaminhamento{
     int id;
     std::string documentoRequisicao;
     Data dataRequisicao;
-    //Funcionario* recebeRequisicao;
-    //MedicoVeterinario* requisitor;
+    int recebeRequisicao; // id do funcionario
+    int requisitor; //id do funcionario
     
 
 public:
-Encaminhamento(int idEncaminhamento, Data dataRequisicao, std::string resultado);
+    Encaminhamento(int idEncaminhamento, Data dataRequisicao, std::string resultado, int recebeRequisicao, int requisitor);
     int getIdEncaminhamento();
     void setIdEncaminhamento(int idEncaminhamento);
 

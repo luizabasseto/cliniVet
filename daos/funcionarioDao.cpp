@@ -7,7 +7,7 @@ void FuncionarioDao::create(Funcionario funcionario){
 void FuncionarioDao::update(int idFuncionario, Funcionario funcionario){
     for (int i = 0; i < funcionarios.size(); i++)
     {
-        if (funcionarios[i].getId()==idFuncionario)
+        if (funcionarios[i].getIdFuncionario()==idFuncionario)
         {
             funcionarios[i] = funcionario;
         }
@@ -19,7 +19,7 @@ void FuncionarioDao::update(int idFuncionario, Funcionario funcionario){
 void FuncionarioDao::remove(int idFuncionario){
     for (int i = 0; i < funcionarios.size(); i++)
     {
-        if (funcionarios[i].getId()==idFuncionario)
+        if (funcionarios[i].getIdFuncionario()==idFuncionario)
         {
             funcionarios.erase(funcionarios.begin()+i);
         }
@@ -30,7 +30,7 @@ void FuncionarioDao::remove(int idFuncionario){
 Funcionario FuncionarioDao::retrieve(int idFuncionario){
     for (int i = 0; i < funcionarios.size(); i++)
     {
-        if (funcionarios[i].getId()==idFuncionario)
+        if (funcionarios[i].getIdFuncionario()==idFuncionario)
         {
             return funcionarios[i];
         }

@@ -1,10 +1,12 @@
 #include <vector>
-#include "../entidades/funcionario.hpp"  
+#include "../entidades/funcionario.hpp"
+#include "../entidades/data.hpp"
 
 class FuncionarioDao{
+
     std::vector<Funcionario> funcionarios = {
-        Funcionario(3,{15, 8, 2015},{0, 0, 000}, 'A'),
-        Funcionario(4,{20, 5, 2017},{0, 0, 000}, 'A')
+        Funcionario(3, Data(15, 8, 2015), Data(0, 0, 0), 'A'),
+        Funcionario(4, Data(20, 5, 2017), Data(0, 0, 0), 'A')
     };
     public:
         void create(Funcionario funcionario);

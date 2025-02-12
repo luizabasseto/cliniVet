@@ -1,13 +1,16 @@
 #include <vector>
 #include "../entidades/exame.hpp"  
+#include "../entidades/data.hpp"
+
 
 class ExameDao {
 private:
     std::vector<Exame> exames = {
-        Exame(1, {15, 8, 2024}, nullptr, nullptr, "Exame de sangue para o pet Filipo.", 'N'),
-        Exame(2, {20, 1, 2025}, nullptr, nullptr, "Ultrassonografia abdominal para a pet Amanda.", 'N'),
-        Exame(3, {3, 2, 2025}, nullptr, nullptr, "Radiografia de crânio para a pet Jussara.", 'N'),
-        Exame(4, {8, 2, 2025}, nullptr, nullptr, "Biópsia ecoguiada para o Rex.", 'N')
+        
+        Exame(1, Data(15, 8, 24), nullptr, nullptr, "Exame de sangue para o pet Filipo.", 'N'),
+        Exame(2, Data(20, 1, 25), nullptr, nullptr, "Ultrassonografia abdominal para a pet Amanda.", 'N'),
+        Exame(3, Data(3, 2, 25), nullptr, nullptr, "Radiografia de crânio para a pet Jussara.", 'N'),
+        Exame(4, Data(8, 2, 25), nullptr, nullptr, "Biópsia ecoguiada para o Rex.", 'N')
     };
 
 public:

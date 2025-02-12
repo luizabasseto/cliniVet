@@ -1,25 +1,35 @@
 #include "daoManager.hpp"
 
-ConsultaDao& getConsultaDao() { 
+DaoManager::DaoManager() {
+    // Inicializa os DAOs
+    consultaDao = new ConsultaDao();  
+    animalDao = new AnimalDao();
+    encaminhamentoDao = new EncaminhamentoDao();
+    exameDao = new ExameDao();
+    funcionarioDao = new FuncionarioDao();
+    veterinarioDao = new VeterinarioDao();     
+}
+
+ConsultaDao* DaoManager::getConsultaDao() { 
     return consultaDao; 
 }
 
-AnimalDao& getAnimalDao() { 
+AnimalDao* DaoManager::getAnimalDao() { 
     return animalDao; 
 } 
 
-EncaminhamentoDao& getEncaminhamentoDao() { 
+EncaminhamentoDao* DaoManager::getEncaminhamentoDao() { 
     return encaminhamentoDao; 
 }
 
-ExameDao& getExameDao() { 
+ExameDao* DaoManager::getExameDao() { 
     return exameDao; 
 }
 
-FuncionarioDao& getFuncionarioDao() { 
+FuncionarioDao* DaoManager::getFuncionarioDao() { 
     return funcionarioDao; 
 }
 
-VeterinarioDao& getVeterinarioDao() { 
+VeterinarioDao* DaoManager::getVeterinarioDao() { 
     return veterinarioDao; 
 }

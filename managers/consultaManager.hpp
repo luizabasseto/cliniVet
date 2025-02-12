@@ -1,22 +1,25 @@
 #include <iostream>
 #include <vector>
-#include "../daos/daoManager.hpp"
 #include "../entidades/consulta.hpp"
-#include <string>
 
-class ManagerConsulta{
-    private:
-     std::vector<Consulta> consultas;
-
+class ConsultaManager{
+    DaoManager* daoManager;
     public: 
-        Consulta* getConsulta(int idConsulta);
+        ConsultaManager(DaoManager* daoManager);
 
-        vector<Consulta> listConsultas(Animal animalId): 
+        void getConsulta(int idConsulta);
 
-        vector<Consulta> checarAgenda(tipoVisao): 
+        void listConsultas(int animalId);
 
-        Receita* criarReceita(int idReceita);
+        void checarAgenda(std::string tipoVisao);
 
-        Exame* criarExame(int idExame);
+        //Receita criarReceita(int idReceita);
 
+        void setPedidoExame(int idConsulta, std::string documentoExame, int idRequisitor, int idRecebeRequisicao, Data dataRequisicao);
+        
+        void cancelarConsulta(int idConsulta);
+        
+        void remarcarConsulta(Data novaData);
+        
+        void encerrarConsulta(int idConsulta);
 };
