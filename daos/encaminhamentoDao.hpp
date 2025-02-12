@@ -2,6 +2,8 @@
 #include "../entidades/encaminhamento.hpp" 
 #include "../entidades/data.hpp"
 
+#pragma once
+
 class EncaminhamentoDao{
     std::vector<Encaminhamento> encaminhamentos = {
         

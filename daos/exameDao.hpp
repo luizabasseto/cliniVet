@@ -2,6 +2,7 @@
 #include "../entidades/exame.hpp"  
 #include "../entidades/data.hpp"
 
+#pragma once
 
 class ExameDao {
 private:

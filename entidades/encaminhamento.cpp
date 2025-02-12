@@ -4,7 +4,7 @@
 #include "animal.hpp"
 
 // Implementação do construtor
-Encaminhamento::Encaminhamento(int idEncaminhamento, Data dataRequisicao, std::string documentoRequisicao, int recebeRequisicao, int requisitor) {
+Encaminhamento::Encaminhamento(int idEncaminhamento, Data dataRequisicao, std::string documentoRequisicao, Funcionario* recebeRequisicao, Veterinario* requisitor) {
     this->id = idEncaminhamento;
     this->dataRequisicao = dataRequisicao;
     this->documentoRequisicao = documentoRequisicao;
@@ -42,6 +42,6 @@ void Encaminhamento::toString() {
     std::cout << "ID Encaminhamento: " << id << std::endl
               << "Documento Requisicao: " << documentoRequisicao << std::endl
               << "Data Requisicao: " << dataRequisicao.toString() << std::endl
-              << "Recebe Requisicao (Funcionario ID): " << recebeRequisicao << std::endl
-              << "Requisitor (Funcionario ID): " << requisitor << std::endl;
+              << "Funcionario receptor: " << recebeRequisicao->toString() << std::endl
+              << "Médico requisitor: " << requisitor->toString() << std::endl;
 }

@@ -1,5 +1,8 @@
 #include <vector>
 #include "../entidades/animal.hpp"  
+#include "../entidades/data.hpp"
+
+#pragma once
 
 class AnimalDao{
     std::vector<Animal> animais = {

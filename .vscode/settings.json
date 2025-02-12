@@ -100,5 +100,6 @@
     "stdexcept": "cpp",
     "streambuf": "cpp",
     "typeinfo": "cpp"
-  }
+  },
+  "nuxt.isNuxtApp": false
 }

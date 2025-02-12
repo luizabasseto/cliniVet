@@ -6,6 +6,8 @@
 #include "veterinarioDao.hpp"
 #include "funcionarioDao.hpp"
 
+#pragma once
+
 class DaoManager
 {
 private:

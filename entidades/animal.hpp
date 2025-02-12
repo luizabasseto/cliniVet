@@ -1,7 +1,7 @@
 
 #include <string>  // Para usar string
 #include <iostream>  // Para usar cout
-#include "../entidades/data.hpp"
+#include "data.hpp"
 
 #pragma once
 

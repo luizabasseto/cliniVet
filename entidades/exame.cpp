@@ -2,11 +2,11 @@
 #include <string>
 #include "exame.hpp"
 
-Exame::Exame(int idExame, Data dataRealizado, int idAnimal, int idEncaminhamento, std::string resultado, char status) {
+Exame::Exame(int idExame, Data dataRealizado, Animal* animal, Encaminhamento* encaminhamento, std::string resultado, char status) {
     this->id = idExame; 
     this->dataRealizado = dataRealizado;
-    this->idAnimal = idAnimal;
-    this->idEncaminhamento = idEncaminhamento;
+    this->animal = animal;
+    this->encaminhamento = encaminhamento;
     this->resultado = resultado;
     this->status = status;
 }
@@ -27,20 +27,20 @@ void Exame::setDataExame(Data dataRealizado) {
     this->dataRealizado = dataRealizado; 
 }
 
-int Exame::getIdAnimalDoExame() {
-    return idAnimal;
+Animal* Exame::getAnimalDoExame() {
+    return animal;
 }
 
-void Exame::setIdAnimalDoExame(int idAnimal) {
-    this->idAnimal = idAnimal;
+void Exame::setAnimalDoExame(Animal* animal) {
+    this->animal = animal;
 }
 
-int Exame::getIdEncaminhamento() {
-    return idEncaminhamento;
+Encaminhamento* Exame::getIdEncaminhamento() {
+    return encaminhamento;
 }
 
-void Exame::setIdEncaminhamento(int idEncaminhamento) {
-    this->idEncaminhamento = idEncaminhamento;
+void Exame::setIdEncaminhamento(Encaminhamento* encaminhamento) {
+    this->encaminhamento = encaminhamento;
 }
 
 std::string Exame::getResultado() { 
@@ -61,9 +61,9 @@ void Exame::setStatus(char status) {
 
 void Exame::toString() {
     std::cout << "Exame ID: " << id << std::endl;
-    std::cout << "Encaminhamento ID: " << idEncaminhamento << std::endl;
+    std::cout << "Encaminhamento: " << encaminhamento->toString() << std::endl;
     std::cout << "Data de Realização: " << dataRealizado.toString() << std::endl;
-    std::cout << "Animal ID: " << idAnimal << std::endl;
+    std::cout << "Animal: " << animal->toString() << std::endl;
     std::cout << "Resultado: " << resultado << std::endl;
     std::cout << "Status: " << (status == 'F' ? "Feito" : "Não feito") << std::endl;
 }

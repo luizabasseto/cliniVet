@@ -2,6 +2,8 @@
 #include "../entidades/funcionario.hpp"
 #include "../entidades/data.hpp"
 
+#pragma once
+
 class FuncionarioDao{
 
     std::vector<Funcionario> funcionarios = {

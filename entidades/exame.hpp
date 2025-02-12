@@ -2,6 +2,7 @@
 #include <vector>
 #include "animal.hpp"
 #include "encaminhamento.hpp"
+#include "data.hpp"
 
 #pragma once
 
@@ -10,23 +11,23 @@ class Exame{
     Data dataRealizado;
     std::string resultado;
     char status;
-    int idAnimal; 
-    int idEncaminhamento;
+    Animal* animal; 
+    Encaminhamento* encaminhamento;
     
 
 public:
-    Exame(int idExame, Data dataRealizado, int idAnimal, int idEncaminhamento, std::string resultado, char status);
+    Exame(int idExame, Data dataRealizado, Animal* animal, Encaminhamento* encaminhamento, std::string resultado, char status);
     int getIdExame();
     void setIdExame(int idExamed);
 
     Data getDataExame();
     void setDataExame(Data dataRealizado);
 
-    int getIdAnimalDoExame();
-    void setIdAnimalDoExame(int idAnimal);
+    Animal* getAnimalDoExame();
+    void setAnimalDoExame(Animal* animal);
 
-    int getIdEncaminhamento();
-    void setIdEncaminhamento(int idEncaminhamento);
+    Encaminhamento* getEncaminhamento();
+    void setEncaminhamento(Encaminhamento* encaminhamento);
 
     std::string getResultado();
     void setResultado(std::string peso);

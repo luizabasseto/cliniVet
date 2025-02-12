@@ -2,6 +2,9 @@
 #include <vector>
 #include "../entidades/consulta.hpp"
 #include "../daos/daoManager.hpp"
+#include "../entidades/data.hpp"
+
+#pragma once
 
 class ConsultaManager{
     DaoManager* daoManager;

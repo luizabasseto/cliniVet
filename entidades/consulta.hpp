@@ -2,6 +2,7 @@
 #include <vector>
 #include "animal.cpp"
 #include "veterinario.cpp"
+#include "data.hpp"
 
 #pragma once
 
@@ -11,11 +12,11 @@ class Consulta{
     std::string anamnese;
     float peso;
     char status; // P = pendente F = finalizada
-    int idAnimal;
-    int idVeterinario;
+    Animal* animal;
+    Veterinario* veterinario;
 
 public:
-    Consulta(int id, Data data, std::string anamnese, float peso, char status, int idAnimal, int idVeterinario);
+    Consulta(int id, Data data, std::string anamnese, float peso, char status, Animal* animal, Veterinario* veterinario);
     int getIdConsulta();
     void setIdConsulta(int idConsulta);
     
@@ -31,11 +32,11 @@ public:
     char getStatus();
     void setStatus(char status);
 
-    int getIdAnimal();
-    void setIdAnimal(int idAnimal);
+    Animal* getAnimal();
+    void setAnimal(Animal* animal);
 
-    int getIdVeterinario();
-    void setIdVeterinario(int idVeterinario);
+    Veterinario* getVeterinario();
+    void setVeterinario(Veterinario* veterinario);
 
     void toString();
 

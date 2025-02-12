@@ -4,14 +4,14 @@
 
 using namespace std;
 
-Consulta::Consulta(int id, Data data, std::string anamnese, float peso, char status, int idAnimal, int idVeterinario){
+Consulta::Consulta(int id, Data data, std::string anamnese, float peso, char status, Animal* animal, Veterinario* veterinario){
     this->id = id;
     this->horarioConsulta = data;
     this->anamnese = anamnese;
     this->peso = peso;
     this->status = status;
-    this->idAnimal = idAnimal;
-    this->idVeterinario = idVeterinario;
+    this->animal = animal;
+    this->veterinario = veterinario;
 }
 
 // Métodos Getters e Setters
@@ -55,28 +55,28 @@ void Consulta::setStatus(char newStatus) {
     status = newStatus;
 }
 
-int Consulta::getIdAnimal(){
-    return idAnimal;
+Animal* Consulta::getAnimal(){
+    return animal;
 }
 
-void Consulta::setIdAnimal(int idAnimal){
-    idAnimal = idAnimal;
+void Consulta::setAnimal(Animal* animal){
+    animal = animal;
 }
 
-int Consulta::getIdVeterinario(){
-    return idVeterinario;
+Veterinario* Consulta::getVeterinario(){
+    return veterinario;
 }
 
-void Consulta::setIdVeterinario(int idVeterinario){
-    idVeterinario = idVeterinario;
+void Consulta::setVeterinario(Veterinario* veterinario){
+    veterinario = veterinario;
 }
 
 void Consulta::toString() {
     cout << "ID: " << id << endl;
-    cout << "Data da consulta: " << horarioConsulta.dia << "/" << horarioConsulta.mes << "/" << horarioConsulta.ano << endl;
+    cout << "Data da consulta: " << horarioConsulta.toString() << endl;
     cout << "Anamnese: " << anamnese << endl;
     cout << "Peso: " << peso << "kg" << endl;
     cout << "Status: " << status << endl;
-    cout << "ID do Animal: " << idAnimal << endl;
-    cout << "ID do Médico veterinário: " << idVeterinario << endl;
+    cout << "Animal: " << animal->toString() << endl;
+    cout << "Médico veterinário: " << veterinario->toString() << endl;
 }

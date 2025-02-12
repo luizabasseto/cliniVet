@@ -2,6 +2,7 @@
 #include <vector>
 #include "../entidades/exame.hpp
 
+#pragma once
 
 
 class ExameManager{

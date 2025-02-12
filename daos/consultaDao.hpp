@@ -2,6 +2,8 @@
 #include "../entidades/consulta.hpp"
 #include "../entidades/data.hpp"
 
+#pragma once
+
 class ConsultaDao{
     std::vector<Consulta> consultas = {
         Consulta(1, Data(10, 1, 2),  "", 0, 'P', 2, 1),

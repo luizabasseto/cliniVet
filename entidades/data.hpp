@@ -3,6 +3,7 @@
 #ifndef DATA_HPP
 #define DATA_HPP
 
+#pragma once
 
 class Data{
     int dia;

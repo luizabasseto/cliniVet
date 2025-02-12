@@ -1,6 +1,8 @@
 #include <vector>
 #include "../entidades/veterinario.hpp"  
 
+#pragma once
+
 class VeterinarioDao {
 private:
     std::vector<Veterinario> veterinarios;

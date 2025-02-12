@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include "data.hpp"
 
 #pragma once
 
@@ -7,12 +8,12 @@ class Encaminhamento{
     int id;
     std::string documentoRequisicao;
     Data dataRequisicao;
-    int recebeRequisicao; // id do funcionario
-    int requisitor; //id do funcionario
+    Funcionario* recebeRequisicao; 
+    Veterinario* requisitor; 
     
 
 public:
-    Encaminhamento(int idEncaminhamento, Data dataRequisicao, std::string resultado, int recebeRequisicao, int requisitor);
+    Encaminhamento(int idEncaminhamento, Data dataRequisicao, std::string resultado, Funcionario* recebeRequisicao, Veterinario* requisitor);
     int getIdEncaminhamento();
     void setIdEncaminhamento(int idEncaminhamento);
 

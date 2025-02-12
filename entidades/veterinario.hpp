@@ -1,5 +1,6 @@
 #include "funcionario.hpp"
 #include <string>
+#include "data.hpp"
 
 #pragma once
 
