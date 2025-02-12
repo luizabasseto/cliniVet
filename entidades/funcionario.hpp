@@ -5,6 +5,7 @@
 #pragma once
 
 class Funcionario{
+private:
     int id;
     Data dataEntrada;
     Data dataSaida;
@@ -13,24 +14,19 @@ class Funcionario{
 
 public:
     Funcionario(int idFuncionario, Data dataEntrada, Data dataSaida, char status);
-    int getIdFuncionario();
-    void setIdFuncionario(int idFuncionariod);
+    virtual int getIdFuncionario();
+    virtual void setIdFuncionario(int idFuncionariod);
 
-    Data getDataEntradaFuncionario();
-    void setDataEntradaFuncionario(Data dataEntrada);
+    virtual Data getDataEntradaFuncionario();
+    virtual void setDataEntradaFuncionario(Data dataEntrada);
 
-    Data getDataSaidaFuncionario();
-    void setDataSaidaFuncionario(Data dataSaida);
+    virtual Data getDataSaidaFuncionario();
+    virtual void setDataSaidaFuncionario(Data dataSaida);
 
-    char getStatus();
-    void setStatus(char status);
+    virtual char getStatus();
+    virtual void setStatus(char status);
 
-    void toString();
-    Funcionario* getFuncionario();
-    void setFuncionario(Funcionario* Funcionario);
-
-    //???????????????????????????????????????????????????????????????????????
-    void criarFuncionario(); //adiciona tudo, exceto resultado, com status de não feito
-    void registrarResultado(); //adiciona resultado, data de realização e muda status para feito
-
+    virtual void toString();
+    virtual Funcionario* getFuncionario();
+    virtual void setFuncionario(Funcionario* Funcionario);
 };

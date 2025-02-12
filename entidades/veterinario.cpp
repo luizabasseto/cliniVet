@@ -1,9 +1,9 @@
-// #include <iostream>
-// #include <string>
-// #include "veterinario.hpp"
+#include <iostream>
+#include <string>
+#include "veterinario.hpp"
 
-// Veterinario::Veterinario(int idV, std::string login, std::string senhaHash, Data dataEntrada, Data dataSaida, char status, std::string crmv)
-//     : Funcionario(idV, login, senhaHash, dataEntrada, dataSaida, status), crmv(crmv) {}
+Veterinario::Veterinario(int idV, std::string login, std::string senhaHash, Data dataEntrada, Data dataSaida, char status, std::string crmv){}
+     : Funcionario(idV, login, senhaHash, dataEntrada, dataSaida, status), crmv(crmv) {}
 
 // std::string Veterinario::getCrmv(){
 //     return crmv;
