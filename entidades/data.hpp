@@ -1,5 +1,9 @@
 #include <iostream>
 #include <string>
+#ifndef DATA_HPP
+#define DATA_HPP
+
+
 class Data{
     int dia;
     int mes;
@@ -7,7 +11,8 @@ class Data{
 
     public:
         Data(int d, int m, int a);
-
+        Data();
     // Função para converter a data para string
     std::string toString();
 };
+#endif // DATA_HPP

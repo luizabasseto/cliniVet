@@ -62,7 +62,7 @@ void Exame::setStatus(char status) {
 void Exame::toString() {
     std::cout << "Exame ID: " << id << std::endl;
     std::cout << "Encaminhamento ID: " << idEncaminhamento << std::endl;
-    std::cout << "Data de Realização: " << dataRealizado.dia << "/" << dataRealizado.mes << "/" << dataRealizado.ano << std::endl;
+    std::cout << "Data de Realização: " << dataRealizado.toString() << std::endl;
     std::cout << "Animal ID: " << idAnimal << std::endl;
     std::cout << "Resultado: " << resultado << std::endl;
     std::cout << "Status: " << (status == 'F' ? "Feito" : "Não feito") << std::endl;

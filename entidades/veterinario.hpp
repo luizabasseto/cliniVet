@@ -17,5 +17,5 @@ public:
     void toString();
     Veterinario* getVeterinario();
     void setVeterinario(Veterinario* veterinario);
-}
+};
 
