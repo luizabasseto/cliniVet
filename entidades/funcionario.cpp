@@ -5,7 +5,8 @@
 #include "data.hpp"
 
 Funcionario::Funcionario(int idFuncionario, Data dataEntrada, Data dataSaida, char status){
-    this->id = idFuncionario; 
+    this->id = idFuncionario;
+    this->login 
     this->dataEntrada = dataEntrada;
     this->dataSaida = dataSaida;
     this->status = status;
