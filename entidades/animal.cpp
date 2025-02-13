@@ -1,4 +1,5 @@
 #include "animal.hpp"
+#include "data.hpp"
 
 Animal::Animal(int id, std::string nome, Data dataNascimento, char sexo) {
     this->id = id;

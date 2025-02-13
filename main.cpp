@@ -2,6 +2,7 @@
 #include <string>
 #include "daos/daoManager.hpp"
 #include "managers/consultaManager.hpp"
+#include "entidades/data.hpp"
 
 int main()
 {

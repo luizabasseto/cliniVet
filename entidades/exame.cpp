@@ -35,11 +35,11 @@ void Exame::setAnimalDoExame(Animal* animal) {
     this->animal = animal;
 }
 
-Encaminhamento* Exame::getIdEncaminhamento() {
+Encaminhamento* Exame::getEncaminhamento() {
     return encaminhamento;
 }
 
-void Exame::setIdEncaminhamento(Encaminhamento* encaminhamento) {
+void Exame::setEncaminhamento(Encaminhamento* encaminhamento) {
     this->encaminhamento = encaminhamento;
 }
 
