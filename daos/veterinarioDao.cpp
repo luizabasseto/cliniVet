@@ -4,29 +4,30 @@ void VeterinarioDao::create(Veterinario veterinario){
     veterinarios.push_back(veterinario);
 }
 
-void VeterinarioDao::update(int idVeterinario, Veterinario veterinario){
+void VeterinarioDao::update(std::string crmv, Veterinario veterinario){
     for (int i = 0; i < veterinarios.size(); i++){
-        if (veterinarios[i].getIdVeterinario()==idVeterinario){
+        if (veterinarios[i].getCrmv() == crmv){
             veterinarios[i] = veterinario;
         }
     }
     
 }
 
-void VeterinarioDao::remove(int idVeterinario){
+void VeterinarioDao::remove(std::string crmv){
     for (int i = 0; i < veterinarios.size(); i++){
-        if (veterinarios[i].getIdVeterinario()==idVeterinario){
+        if (veterinarios[i].getCrmv() == crmv){
             veterinarios.erase(veterinarios.begin()+i);
         }
     }
 }
 
-Veterinario VeterinarioDao::retrieve(int idVeterinario){
+Veterinario* VeterinarioDao::retrieve(std::string crmv){
     for (int i = 0; i < veterinarios.size(); i++){
-        if (veterinarios[i].getIdVeterinario()==idVeterinario){
-            return veterinarios[i];
+        if (veterinarios[i].getCrmv() == crmv){
+            return &veterinarios[i];
         }
     }
+    return nullptr;
 }
 
 std::vector<Veterinario> VeterinarioDao::list(){
