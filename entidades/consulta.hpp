@@ -40,11 +40,4 @@ public:
 
     void toString();
 
-    // Veterinario* getVeterinario();
-    // void setVeterinario(Veterinario* veterinario);
-
-    // Animal* getAnimal();
-    // void setAnimal(Animal* animal);
-
-
 };

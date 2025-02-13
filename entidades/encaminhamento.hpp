@@ -1,6 +1,8 @@
 #include <iostream>
 #include <vector>
 #include "data.hpp"
+#include "funcionario.hpp"
+#include "veterinario.hpp"
 
 #pragma once
 

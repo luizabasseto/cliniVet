@@ -20,7 +20,7 @@ int Consulta::getIdConsulta() {
 }
 
 void Consulta::setIdConsulta(int idConsulta) {
-    id = idConsulta;
+    this->id = idConsulta;
 }
 
 Data Consulta::getHorarioConsulta() {
@@ -28,7 +28,7 @@ Data Consulta::getHorarioConsulta() {
 }
 
 void Consulta::setHorarioConsulta(Data data) {
-    horarioConsulta = data;
+    this->horarioConsulta = data;
 }
 
 std::string Consulta::getAnamnese() {
@@ -36,7 +36,7 @@ std::string Consulta::getAnamnese() {
 }
 
 void Consulta::setAnamnese(std::string anamnese) {
-    anamnese = anamnese;
+    this->anamnese = anamnese;
 }
 
 float Consulta::getPeso() {
@@ -44,7 +44,7 @@ float Consulta::getPeso() {
 }
 
 void Consulta::setPeso(float newPeso) {
-    peso = newPeso;
+    this->peso = newPeso;
 }
 
 char Consulta::getStatus() {
@@ -52,7 +52,7 @@ char Consulta::getStatus() {
 }
 
 void Consulta::setStatus(char newStatus) {
-    status = newStatus;
+    this->status = newStatus;
 }
 
 Animal* Consulta::getAnimal(){
@@ -60,7 +60,7 @@ Animal* Consulta::getAnimal(){
 }
 
 void Consulta::setAnimal(Animal* animal){
-    animal = animal;
+    this->animal = animal;
 }
 
 Veterinario* Consulta::getVeterinario(){
@@ -68,15 +68,15 @@ Veterinario* Consulta::getVeterinario(){
 }
 
 void Consulta::setVeterinario(Veterinario* veterinario){
-    veterinario = veterinario;
+    this->veterinario = veterinario;
 }
 
 void Consulta::toString() {
-    cout << "ID: " << id << endl;
-    cout << "Data da consulta: " << horarioConsulta.toString() << endl;
-    cout << "Anamnese: " << anamnese << endl;
-    cout << "Peso: " << peso << "kg" << endl;
-    cout << "Status: " << status << endl;
-    cout << "Animal: " << animal->toString() << endl;
-    cout << "Médico veterinário: " << veterinario->toString() << endl;
+    std::cout << "ID: " << id << std::endl;
+    std::cout << "Data da consulta: " << horarioConsulta.toString() << std::endl;
+    std::cout << "Anamnese: " << anamnese << std::endl;
+    std::cout << "Peso: " << peso << "kg" << std::endl;
+    std::cout << "Status: " << (status == 'F' ? "Finalizada" : "Pendente") << std::endl;
+    if (animal) std::cout << "Animal: " << animal->getNome() << std::endl;
+    if (veterinario) std::cout << "Médico veterinário: " << veterinario->getCrmv() << std::endl;
 }

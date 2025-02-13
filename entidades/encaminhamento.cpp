@@ -41,7 +41,7 @@ void Encaminhamento::setDocumentoRequisicao(std::string documentoRequisicao) {
 void Encaminhamento::toString() {
     std::cout << "ID Encaminhamento: " << id << std::endl
               << "Documento Requisicao: " << documentoRequisicao << std::endl
-              << "Data Requisicao: " << dataRequisicao.toString() << std::endl
-              << "Funcionario receptor: " << recebeRequisicao->toString() << std::endl
-              << "Médico requisitor: " << requisitor->toString() << std::endl;
+              << "Data Requisicao: " << dataRequisicao.toString() << std::endl;
+    if (recebeRequisicao) std::cout << "Funcionario receptor: " << recebeRequisicao->getIdFuncionario() << std::endl;
+    if (requisitor) std::cout << "Médico requisitor: " << requisitor->getCrmv() << std::endl;
 }

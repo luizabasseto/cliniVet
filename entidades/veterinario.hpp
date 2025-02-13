@@ -10,12 +10,13 @@ class Veterinario : public Funcionario{
 
 
 public:
-    Veterinario(int idV, std::string login, std::string senhaHash, Data dataEntrada, Data dataSaida, char status, std::string crmv);
+    Veterinario(int idV, Data dataEntrada, Data dataSaida, char status, std::string crmv);
 
     std::string getCrmv();
     void setCrmv(std::string crmv);
 
-    void toString();
+    void toString() override;
+    
     Veterinario* getVeterinario();
     void setVeterinario(Veterinario* veterinario);
 };
