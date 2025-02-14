@@ -15,10 +15,10 @@ public:
 
     void getFuncionario(int idFuncionario);
 
-    void listFuncionarios(int idFuncionario);
+    void listFuncionarios();
 
-    void listMedicosVeterinarios(int crmv);
+    void listMedicosVeterinarios();
 
-    void listImaginologistas(int idFuncionario);
+    void listImaginologistas();
 
 };

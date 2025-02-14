@@ -4,12 +4,15 @@
 
 #pragma once
 
-enum Cargo {
+enum Cargo
+{
     IMAGINOLOGISTA,
     SECRETARIA,
     ATENDENTE,
-    ADMINISTRATIVO
+    ADMINISTRATIVO,
 };
+
+std::string toStringCargo(Cargo cargo);
 
 class Funcionario{
 private:
@@ -40,4 +43,6 @@ public:
     virtual void toString();
     virtual Funcionario* getFuncionario();
     virtual void setFuncionario(Funcionario* Funcionario);
+
+    
 };

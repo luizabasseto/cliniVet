@@ -13,46 +13,36 @@ void FuncionarioManager::getFuncionario(int idFuncionario){
     funcionario.toString();  
 }
 
-void FuncionarioManager::listFuncionarios(int idFuncionario){
+void FuncionarioManager::listFuncionarios() {
     std::vector<Funcionario> funcionarios = daoManager->getFuncionarioDao()->list();
-    Funcionario funcionario = daoManager->getFuncionarioDao()->retrieve(idFuncionario);
-    std::cout<<"Funcionarios";
-    funcionario.toString();
-    
+    std::cout << "Funcionários cadastrados:" << std::endl;
+    for (const auto& funcionario : funcionarios) {
+        std::cout<<funcionario.toString() << std::endl;
+    }
 }
 
-void FuncionarioManager::listMedicosVeterinarios(int crmv) {
+
+void FuncionarioManager::listMedicosVeterinarios() {
     std::vector<Veterinario> medicos = daoManager->getVeterinarioDao()->list();
-    Veterinario veterinario = daoManager->getVeterinarioDao()->retrieve(crmv);
-
-    std::cout << "Médicos Veterinários disponíveis" << std::endl;
-    for (int i = 0; i < medicos.size(); i++)
-    {
-        if (medicos[i].getStatus() == 'A')
-        {
-            medicos[i].toString();
+    
+    std::cout << "Médicos Veterinários disponíveis:" << std::endl;
+    for (const auto& medico : medicos) {
+        if (medico.getStatus() == 'A') {
+            std::cout << medico.toString() << std::endl;
         }
-        
     }
 }
 
-void FuncionarioManager::listImaginologistas(int idFuncionario) {
+
+void FuncionarioManager::listImaginologistas() {
     std::vector<Funcionario> funcionarios = daoManager->getFuncionarioDao()->list();
-    Funcionario funcionario = daoManager->getFuncionarioDao()->retrieve(idFuncionario);
-    std::cout<<"Imaginologistas";
-    funcionario.toString();
-}
+    std::cout << "Lista de Imaginologistas:" << std::endl;
 
-
-void FuncionarioManager::listImaginologistas(int idFuncionario) {
-    Funcionario funcionario = daoManager->getFuncionarioDao()->retrieve(idFuncionario);
-    std::vector<Funcionario> resultado;
-    std::cout<<"Imaginologistas";
-    for (const auto& f : funcionario) {
+    for (const auto& f : funcionarios) {
         if (f.getCargo() == IMAGINOLOGISTA) {
-            resultado.push_back(f);
-            funcionario.toString();
+            std::cout << f.toString() << std::endl;
         }
     }
 }
+
 

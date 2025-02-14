@@ -12,6 +12,16 @@ Funcionario::Funcionario(int idFuncionario, Data dataEntrada, Data dataSaida, ch
     this->cargo = cargo;
 }
 
+std::string toStringCargo(Cargo cargo) {
+    switch (cargo) {
+        case IMAGINOLOGISTA: return "Imaginologista";
+        case SECRETARIA: return "Secretária";
+        case ATENDENTE: return "Atendente";
+        case ADMINISTRATIVO: return "Administrativo";
+        default: return "Desconhecido";
+    }
+}
+
 int Funcionario::getIdFuncionario() { 
     return id; 
 }
@@ -33,7 +43,7 @@ Data Funcionario::getDataSaidaFuncionario() {
 }
 
 void Funcionario::setDataSaidaFuncionario(Data dataSaida) { 
-    this->dataEntrada = dataSaida; 
+    this->dataSaida = dataSaida; 
 }
 
 char Funcionario::getStatus() { 
@@ -57,7 +67,7 @@ void Funcionario::toString() {
     std::cout << "Data de Entrada: " << dataEntrada.toString() << "\n";
     std::cout << "Data de Saida: " << dataSaida.toString() << "\n";
     std::cout << "Status: " << (status == 'F' ? "Feito" : "Não feito") << "\n";
-    std::cout << "Cargo: " << cargo.toString() << "\n";
+    std::cout << "Cargo: " << toStringCargo(cargo) << "\n";
 }
 
 
