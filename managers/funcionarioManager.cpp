@@ -43,3 +43,16 @@ void FuncionarioManager::listImaginologistas(int idFuncionario) {
     funcionario.toString();
 }
 
+
+void FuncionarioManager::listImaginologistas(int idFuncionario) {
+    Funcionario funcionario = daoManager->getFuncionarioDao()->retrieve(idFuncionario);
+    std::vector<Funcionario> resultado;
+    std::cout<<"Imaginologistas";
+    for (const auto& f : funcionario) {
+        if (f.getCargo() == IMAGINOLOGISTA) {
+            resultado.push_back(f);
+            funcionario.toString();
+        }
+    }
+}
+

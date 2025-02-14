@@ -1,6 +1,12 @@
 {
   "version": "0.2.0",
-  "configurations": [
+  "configurations": [{
+    "type": "cmake",
+    "request": "launch",
+    "name": "CMake: Externally launched",
+    "cmakeDebugType": "external",
+    "pipeName": "<...>"
+  },
     {
       "name": "C/C++ Runner: Debug Session",
       "type": "cppdbg",

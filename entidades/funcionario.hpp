@@ -4,16 +4,24 @@
 
 #pragma once
 
+enum Cargo {
+    IMAGINOLOGISTA,
+    SECRETARIA,
+    ATENDENTE,
+    ADMINISTRATIVO
+};
+
 class Funcionario{
 private:
     int id;
     Data dataEntrada;
     Data dataSaida;
     char status;
+    Cargo cargo;
     
 
 public:
-    Funcionario(int idFuncionario, Data dataEntrada, Data dataSaida, char status);
+    Funcionario(int idFuncionario, Data dataEntrada, Data dataSaida, char status, Cargo cargo);
     virtual int getIdFuncionario();
     virtual void setIdFuncionario(int idFuncionariod);
 
@@ -25,6 +33,9 @@ public:
 
     virtual char getStatus();
     virtual void setStatus(char status);
+
+    virtual Cargo getCargo();
+    virtual void setCargo(Cargo cargo);
 
     virtual void toString();
     virtual Funcionario* getFuncionario();

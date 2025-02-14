@@ -4,11 +4,12 @@
 #include "animal.hpp"
 #include "data.hpp"
 
-Funcionario::Funcionario(int idFuncionario, Data dataEntrada, Data dataSaida, char status){
+Funcionario::Funcionario(int idFuncionario, Data dataEntrada, Data dataSaida, char status, Cargo cargo){
     this->id = idFuncionario;
     this->dataEntrada = dataEntrada;
     this->dataSaida = dataSaida;
     this->status = status;
+    this->cargo = cargo;
 }
 
 int Funcionario::getIdFuncionario() { 
@@ -43,11 +44,20 @@ void Funcionario::setStatus(char status) {
     this->status = status; 
 }
 
+Cargo Funcionario::getCargo()  {
+    return cargo;
+}
+
+void Funcionario::setCargo(Cargo cargo) { 
+    this->cargo = cargo; 
+}
+
 void Funcionario::toString() {
     std::cout << "Funcionario ID: " << id << "\n";
     std::cout << "Data de Entrada: " << dataEntrada.toString() << "\n";
     std::cout << "Data de Saida: " << dataSaida.toString() << "\n";
     std::cout << "Status: " << (status == 'F' ? "Feito" : "Não feito") << "\n";
+    std::cout << "Cargo: " << cargo.toString() << "\n";
 }
 
 

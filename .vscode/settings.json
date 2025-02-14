@@ -101,5 +101,6 @@
     "streambuf": "cpp",
     "typeinfo": "cpp"
   },
-  "nuxt.isNuxtApp": false
+  "nuxt.isNuxtApp": false,
+  "makefile.configureOnOpen": true
 }

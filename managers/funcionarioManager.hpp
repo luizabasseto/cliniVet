@@ -19,5 +19,6 @@ public:
 
     void listMedicosVeterinarios(int crmv);
 
-    void listImaginologistas(int funcionarioId);
+    void listImaginologistas(int idFuncionario);
+
 };
