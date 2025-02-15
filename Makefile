@@ -1,19 +1,22 @@
-all: main
-
+# Definindo o compilador e as flags
 CXX = g++
-override CXXFLAGS += -g -Wall -Werror -std=c++14
+CXXFLAGS = -g -Wall -Werror -std=c++14
 
-SRCS = *.cpp entidades/*.cpp daos/*.cpp managers/*.cpp
-HEADERS = 
+# Diretórios onde os arquivos .cpp estão localizados
+SRCS = $(wildcard *.cpp) $(wildcard entidades/*.cpp) $(wildcard daos/*.cpp) $(wildcard managers/*.cpp)
+HEADERS = $(wildcard *.hpp) $(wildcard entidades/*.hpp) $(wildcard daos/*.hpp) $(wildcard managers/*.hpp)
 
-#SRCS = $(shell find . -name '.ccls-cache' -type d -prune -o -type f -name '*.cpp' -print | sed -e 's/ /\\ /g')
-#HEADERS = $(shell find . -name '.ccls-cache' -type d -prune -o -type f -name '*.hpp' -print)
+# Nome do executável
+TARGET = main
 
-main: $(SRCS) $(HEADERS)
-	$(CXX) $(CXXFLAGS) $(SRCS) -o "$@"
+# Compilando o executável principal
+$(TARGET): $(SRCS) $(HEADERS)
+	$(CXX) $(CXXFLAGS) $(SRCS) -o $(TARGET)
 
+# Compilando o executável para debug (sem otimização)
 main-debug: $(SRCS) $(HEADERS)
-	NIX_HARDENING_ENABLE= $(CXX) $(CXXFLAGS) -O0  $(SRCS) -o "$@"
+	$(CXX) $(CXXFLAGS) -O0 $(SRCS) -o main-debug
 
+# Limpando arquivos de compilação
 clean:
-	rm -f main main-debug
+	del $(TARGET) main-debug

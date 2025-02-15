@@ -5,7 +5,7 @@ void VeterinarioDao::create(Veterinario veterinario){
 }
 
 void VeterinarioDao::update(std::string crmv, Veterinario veterinario){
-    for (int i = 0; i < veterinarios.size(); i++){
+    for (size_t i = 0; i < veterinarios.size(); i++){
         if (veterinarios[i].getCrmv() == crmv){
             veterinarios[i] = veterinario;
         }
@@ -14,7 +14,7 @@ void VeterinarioDao::update(std::string crmv, Veterinario veterinario){
 }
 
 void VeterinarioDao::remove(std::string crmv){
-    for (int i = 0; i < veterinarios.size(); i++){
+    for (size_t i = 0; i < veterinarios.size(); i++){
         if (veterinarios[i].getCrmv() == crmv){
             veterinarios.erase(veterinarios.begin()+i);
         }
@@ -22,7 +22,7 @@ void VeterinarioDao::remove(std::string crmv){
 }
 
 Veterinario* VeterinarioDao::retrieve(std::string crmv){
-    for (int i = 0; i < veterinarios.size(); i++){
+    for (size_t i = 0; i < veterinarios.size(); i++){
         if (veterinarios[i].getCrmv() == crmv){
             return &veterinarios[i];
         }

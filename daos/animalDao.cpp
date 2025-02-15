@@ -5,7 +5,7 @@ void AnimalDao::create(Animal animal){
 }
 
 void AnimalDao::update(int idAnimal, Animal animal){
-    for (int i = 0; i < animais.size(); i++)
+    for (size_t i = 0; i < animais.size(); i++)
     {
         if (animais[i].getId()==idAnimal)
         {
@@ -17,7 +17,7 @@ void AnimalDao::update(int idAnimal, Animal animal){
 }
 
 void AnimalDao::remove(int idAnimal){
-    for (int i = 0; i < animais.size(); i++)
+    for (size_t i = 0; i < animais.size(); i++)
     {
         if (animais[i].getId()==idAnimal)
         {
@@ -27,16 +27,15 @@ void AnimalDao::remove(int idAnimal){
     }
 }
 
-Animal AnimalDao::retrieve(int idAnimal){
-    for (int i = 0; i < animais.size(); i++)
-    {
-        if (animais[i].getId()==idAnimal)
-        {
-            return animais[i];
+Animal AnimalDao::retrieve(int idAnimal) {
+    for (size_t i = 0; i < animais.size(); i++) {
+        if (animais[i].getId() == idAnimal) {
+            return animais[i]; 
         }
-        
     }
+    return Animal(); 
 }
+
 
 std::vector<Animal> AnimalDao::list(){
     return animais;

@@ -1,10 +1,7 @@
 #include <iostream>
 #include <vector>
-#include "consultaManager.hpp"
-#include "../entidades/encaminhamento.hpp"
-#include "../entidades/exame.hpp"
-#include "../entidades/animal.hpp"
 #include "../daos/daoManager.hpp"
+#include "exameManager.hpp"
 
 ExameManager::ExameManager(DaoManager* daoM) : daoManager(daoM) {}
 

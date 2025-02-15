@@ -18,6 +18,7 @@ std::string toStringCargo(Cargo cargo) {
         case SECRETARIA: return "Secretária";
         case ATENDENTE: return "Atendente";
         case ADMINISTRATIVO: return "Administrativo";
+        case MEDICO: return "Médico Veterinário";
         default: return "Desconhecido";
     }
 }
@@ -62,12 +63,29 @@ void Funcionario::setCargo(Cargo cargo) {
     this->cargo = cargo; 
 }
 
-void Funcionario::toString() {
-    std::cout << "Funcionario ID: " << id << "\n";
-    std::cout << "Data de Entrada: " << dataEntrada.toString() << "\n";
-    std::cout << "Data de Saida: " << dataSaida.toString() << "\n";
-    std::cout << "Status: " << (status == 'F' ? "Feito" : "Não feito") << "\n";
-    std::cout << "Cargo: " << toStringCargo(cargo) << "\n";
+
+Funcionario* Funcionario::getFuncionario() {
+    return this;
 }
 
+void Funcionario::setFuncionario(Funcionario* funcionario) {
+    if (funcionario != nullptr) {
+        this->id = funcionario->getIdFuncionario();
+        this->dataEntrada = funcionario->getDataEntradaFuncionario();
+        this->dataSaida = funcionario->getDataSaidaFuncionario();
+        this->status = funcionario->getStatus();
+        this->cargo = funcionario->getCargo();
+    } else {
+        throw std::invalid_argument("Funcionario não pode ser nulo.");
+    }
+}
 
+std::string Funcionario::toString() {
+    std::string str;
+    str += "Funcionario ID: " + std::to_string(id) + "\n";
+    str += "Data de Entrada: " + dataEntrada.toString() + "\n";
+    str += "Data de Saida: " + dataSaida.toString() + "\n";
+    str += "Status: " + std::string(1, status == 'F' ? 'F' : 'N') + "\n"; //feito=F n-não feito
+    str += "Cargo: " + toStringCargo(cargo) + "\n";
+    return str;
+}

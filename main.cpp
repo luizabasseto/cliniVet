@@ -73,7 +73,8 @@ int main()
                     std::getline(std::cin, documentoExame);
 
                     // o sistema registra a dataRequisicao como a data atual
-                    consultaManager.setPedidoExame(idConsulta, documentoExame, requisitor, requisitado, {11, 2, 2025});
+                    //LINHA DANDO ERRO
+                    //consultaManager.setPedidoExame(idConsulta, documentoExame, std::string(requisitor), requisitado, {11, 2, 2025});
                 }
 
                 std::cout << "Deseja encerrar a consulta?" << std::endl;

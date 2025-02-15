@@ -1,6 +1,8 @@
 #include <iostream>
 #include <string>
 #include "exame.hpp"
+#include "encaminhamento.hpp"
+#include "animal.hpp"
 
 Exame::Exame(int idExame, Data dataRealizado, Animal* animal, Encaminhamento* encaminhamento, std::string resultado, char status) {
     this->id = idExame; 
@@ -9,6 +11,15 @@ Exame::Exame(int idExame, Data dataRealizado, Animal* animal, Encaminhamento* en
     this->encaminhamento = encaminhamento;
     this->resultado = resultado;
     this->status = status;
+}
+
+Exame::Exame(){
+    this->id = 000; 
+    this->dataRealizado = {01,01,2001};
+    this->animal = animal;
+    this->encaminhamento = encaminhamento;
+    this->resultado = "resultado";
+    this->status = 'N';
 }
 
 int Exame::getIdExame() { 
@@ -61,9 +72,17 @@ void Exame::setStatus(char status) {
 
 void Exame::toString() {
     std::cout << "Exame ID: " << id << std::endl;
-    std::cout << "Encaminhamento: " << encaminhamento->toString() << std::endl;
+    if (encaminhamento) { 
+        std::cout << "Encaminhamento: " << encaminhamento->toString() << std::endl;
+    } else {
+        std::cout << "Encaminhamento: Nenhum encaminhamento associado." << std::endl;
+    }
     std::cout << "Data de Realização: " << dataRealizado.toString() << std::endl;
-    std::cout << "Animal: " << animal->toString() << std::endl;
+    if (animal) {
+        std::cout << "Animal: "<<animal->toString() << std::endl;
+    } else {
+        std::cout << "Animal: Nenhum animal associado." << std::endl;
+    }
     std::cout << "Resultado: " << resultado << std::endl;
     std::cout << "Status: " << (status == 'F' ? "Feito" : "Não feito") << std::endl;
 }

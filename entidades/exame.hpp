@@ -17,6 +17,7 @@ class Exame{
 
 public:
     Exame(int idExame, Data dataRealizado, Animal* animal, Encaminhamento* encaminhamento, std::string resultado, char status);
+    Exame();
     int getIdExame();
     void setIdExame(int idExamed);
 

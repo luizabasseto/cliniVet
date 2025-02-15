@@ -14,6 +14,16 @@ Consulta::Consulta(int id, Data data, std::string anamnese, float peso, char sta
     this->veterinario = veterinario;
 }
 
+Consulta::Consulta(){
+    this->id = 0;
+    this->horarioConsulta = {01,01,2001};
+    this->anamnese = "anamnese";
+    this->peso = 0000;
+    this->status = 'n';
+    this->animal = animal;
+    this->veterinario = veterinario;
+}
+
 // Métodos Getters e Setters
 int Consulta::getIdConsulta() {
     return id;

@@ -2,8 +2,8 @@
 #include <string>
 #include "veterinario.hpp"
 
-Veterinario::Veterinario(int idV, Data dataEntrada, Data dataSaida, char status, std::string crmv)
-    : Funcionario(idV, dataEntrada, dataSaida, status), crmv(crmv) {}
+Veterinario::Veterinario(int idV, Data dataEntrada, Data dataSaida, char status, Cargo cargo, std::string crmv)
+    :Funcionario(idV, dataEntrada, dataSaida, status, cargo), crmv(crmv) {}
 
 
 std::string Veterinario::getCrmv() {
@@ -28,6 +28,7 @@ void Veterinario::setVeterinario(Veterinario* veterinario) {
         this->setDataEntradaFuncionario(veterinario->getDataEntradaFuncionario());
         this->setDataSaidaFuncionario(veterinario->getDataSaidaFuncionario());
         this->setStatus(veterinario->getStatus());
+        this->setCargo(veterinario->getCargo());
         this->setCrmv(veterinario->getCrmv());
     } else {
         throw std::invalid_argument("Veterinário inválido.");
@@ -35,8 +36,11 @@ void Veterinario::setVeterinario(Veterinario* veterinario) {
 }
 
 
-void Veterinario::toString(){
-     std::cout << "CRMV: " << crmv << std::endl;
-     std::cout << "Funcionário ID: " << getIdFuncionario() << std::endl;
- }
+std::string Veterinario::toString() {
+    std::string str;
+    str += "CRMV: " + crmv + "\n";
+    str += "Funcionário ID: " + std::to_string(getIdFuncionario()) + "\n";
+    return str;
+}
+
  

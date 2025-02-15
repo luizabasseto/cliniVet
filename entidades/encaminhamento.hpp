@@ -26,7 +26,7 @@ public:
     void setDocumentoRequisicao(std::string resultado);
 
 
-    void toString();
+    std::string toString();
     Encaminhamento* getEncaminhamento();
     void setExame(Encaminhamento* encaminhamento);
 

@@ -13,13 +13,13 @@ class ConsultaManager{
 
         void getConsulta(int idConsulta);
 
-        void listConsultas(int animalId);
+        void listConsultas(int idAnimal);
 
         void checarAgenda(std::string tipoVisao);
 
         //Receita criarReceita(int idReceita);
 
-        void setPedidoExame(int idConsulta, std::string documentoExame, int idRequisitor, int idRecebeRequisicao, Data dataRequisicao);
+        void setPedidoExame(int idConsulta, std::string documentoExame, std::string idRequisitor, int idRecebeRequisicao, Data dataRequisicao);
         
         void cancelarConsulta(int idConsulta);
         

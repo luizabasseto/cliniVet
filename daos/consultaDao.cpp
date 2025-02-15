@@ -1,10 +1,11 @@
 #include "consultaDao.hpp"
+#include "../entidades/consulta.hpp"
 
 ConsultaDao::ConsultaDao()
     : animal1(1, "Antonia", Data(10, 8, 2024), 'F'),
       animal2(2, "Marcelo", Data(12, 1, 2024), 'M'),
-      veterinario3(1, Data(5, 6, 2024), Data(0, 0, 0), 'A', "CRMV-1234"),
-      veterinario4(2, Data(7, 9, 2024), Data(0, 0, 0), 'A', "CRMV-5678")
+      veterinario3(1, Data(5, 6, 2024), Data(0, 0, 0), 'A',MEDICO,"CRMV-1234"),
+      veterinario4(2, Data(7, 9, 2024), Data(0, 0, 0), 'A',MEDICO, "CRMV-5678")
 {
     consultas = {
         Consulta(1, Data(15, 8, 2024), "Antonia está com diabetes canina.", 10, 'F', &animal1, &veterinario3),
@@ -16,7 +17,7 @@ void ConsultaDao::create(Consulta consulta){
 }
 
 void ConsultaDao::update(int idConsulta, Consulta consulta){
-    for (int i = 0; i < consultas.size(); i++)
+    for (size_t i = 0; i < consultas.size(); i++)
     {
         if (consultas[i].getIdConsulta()==idConsulta)
         {
@@ -29,7 +30,7 @@ void ConsultaDao::update(int idConsulta, Consulta consulta){
 
 void ConsultaDao::remove(int idConsulta){
 
-    for (int i = 0; i < consultas.size(); i++)
+    for (size_t i = 0; i < consultas.size(); i++)
     {
         if (consultas[i].getIdConsulta()==idConsulta)
         {
@@ -40,7 +41,7 @@ void ConsultaDao::remove(int idConsulta){
 }
 
 Consulta ConsultaDao::retrieve(int idConsulta){
-    for (int i = 0; i < consultas.size(); i++)
+    for (size_t i = 0; i < consultas.size(); i++)
     {
         if (consultas[i].getIdConsulta()==idConsulta)
         {
@@ -48,6 +49,7 @@ Consulta ConsultaDao::retrieve(int idConsulta){
         }
         
     }
+    return Consulta();
 }
 
 std::vector<Consulta> ConsultaDao::list(){

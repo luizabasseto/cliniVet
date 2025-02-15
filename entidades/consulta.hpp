@@ -1,12 +1,12 @@
-#include <iostream>
-#include <vector>
-#include "animal.cpp"
-#include "veterinario.cpp"
-#include "data.hpp"
-
 #pragma once
+#include <iostream>
+#include <string>
+#include "data.hpp"
+#include "animal.hpp"
+#include "veterinario.hpp"
 
 class Consulta{
+private:
     int id;
     Data horarioConsulta; 
     std::string anamnese;
@@ -17,6 +17,8 @@ class Consulta{
 
 public:
     Consulta(int id, Data data, std::string anamnese, float peso, char status, Animal* animal, Veterinario* veterinario);
+    Consulta();
+
     int getIdConsulta();
     void setIdConsulta(int idConsulta);
     
@@ -39,5 +41,4 @@ public:
     void setVeterinario(Veterinario* veterinario);
 
     void toString();
-
 };

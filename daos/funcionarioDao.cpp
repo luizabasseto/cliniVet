@@ -5,7 +5,7 @@ void FuncionarioDao::create(Funcionario funcionario){
 }
 
 void FuncionarioDao::update(int idFuncionario, Funcionario funcionario){
-    for (int i = 0; i < funcionarios.size(); i++)
+    for (size_t i = 0; i < funcionarios.size(); i++)
     {
         if (funcionarios[i].getIdFuncionario()==idFuncionario)
         {
@@ -17,7 +17,7 @@ void FuncionarioDao::update(int idFuncionario, Funcionario funcionario){
 }
 
 void FuncionarioDao::remove(int idFuncionario){
-    for (int i = 0; i < funcionarios.size(); i++)
+    for (size_t i = 0; i < funcionarios.size(); i++)
     {
         if (funcionarios[i].getIdFuncionario()==idFuncionario)
         {
@@ -27,15 +27,13 @@ void FuncionarioDao::remove(int idFuncionario){
     }
 }
 
-Funcionario FuncionarioDao::retrieve(int idFuncionario){
-    for (int i = 0; i < funcionarios.size(); i++)
-    {
-        if (funcionarios[i].getIdFuncionario()==idFuncionario)
-        {
-            return funcionarios[i];
+Funcionario* FuncionarioDao::retrieve(int idFuncionario) {
+    for (size_t i = 0; i < funcionarios.size(); i++) {
+        if (funcionarios[i].getIdFuncionario() == idFuncionario) {
+            return &funcionarios[i]; 
         }
-        
     }
+    return nullptr;  
 }
 
 std::vector<Funcionario> FuncionarioDao::list(){

@@ -10,6 +10,7 @@ enum Cargo
     SECRETARIA,
     ATENDENTE,
     ADMINISTRATIVO,
+    MEDICO
 };
 
 std::string toStringCargo(Cargo cargo);
@@ -40,9 +41,8 @@ public:
     virtual Cargo getCargo();
     virtual void setCargo(Cargo cargo);
 
-    virtual void toString();
+    virtual std::string toString();
     virtual Funcionario* getFuncionario();
     virtual void setFuncionario(Funcionario* Funcionario);
-
     
 };

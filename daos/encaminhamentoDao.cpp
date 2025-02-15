@@ -1,10 +1,10 @@
 #include "encaminhamentoDao.hpp"
 
 EncaminhamentoDao::EncaminhamentoDao()
-    : funcionario1(1, Data(10, 8, 2024), Data(0, 0, 0), 'A'),
-      funcionario2(2, Data(12, 1, 2024), Data(0, 0, 0), 'A'),
-      veterinario1(1,  Data(5, 6, 2024), Data(0, 0, 0), 'A', "CRMV-1234"),
-      veterinario2(2,  Data(7, 9, 2024), Data(0, 0, 0), 'A', "CRMV-5678")
+    : funcionario1(1, Data(10, 8, 2024), Data(0, 0, 0), 'A',IMAGINOLOGISTA),
+      funcionario2(2, Data(12, 1, 2024), Data(0, 0, 0), 'A',IMAGINOLOGISTA),
+      veterinario1(1,  Data(5, 6, 2024), Data(0, 0, 0), 'A', MEDICO,"CRMV-1234"),
+      veterinario2(2,  Data(7, 9, 2024), Data(0, 0, 0), 'A',MEDICO, "CRMV-5678")
 {
     encaminhamentos = {
         Encaminhamento(1, Data(15, 8, 2024), "Requisito um exame de sangue para o pet Filipo.", &funcionario1, &veterinario2),
@@ -18,7 +18,7 @@ void EncaminhamentoDao::create(Encaminhamento encaminhamento){
 }
 
 void EncaminhamentoDao::update(int idEncaminhamento, Encaminhamento encaminhamento){
-    for (int i = 0; i < encaminhamentos.size(); i++)
+    for (size_t i = 0; i < encaminhamentos.size(); i++)
     {
         if (encaminhamentos[i].getIdEncaminhamento()==idEncaminhamento)
         {
@@ -31,7 +31,7 @@ void EncaminhamentoDao::update(int idEncaminhamento, Encaminhamento encaminhamen
 
 void EncaminhamentoDao::remove(int idEncaminhamento){
 
-    for (int i = 0; i < encaminhamentos.size(); i++)
+    for (size_t i = 0; i < encaminhamentos.size(); i++)
     {
         if (encaminhamentos[i].getIdEncaminhamento()==idEncaminhamento)
         {
@@ -42,7 +42,7 @@ void EncaminhamentoDao::remove(int idEncaminhamento){
 }
 
 Encaminhamento* EncaminhamentoDao::retrieve(int idEncaminhamento){
-    for (int i = 0; i < encaminhamentos.size(); i++)
+    for (size_t i = 0; i < encaminhamentos.size(); i++)
     {
         if (encaminhamentos[i].getIdEncaminhamento()==idEncaminhamento)
         {

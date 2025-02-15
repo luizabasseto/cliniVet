@@ -1,12 +1,12 @@
+#pragma once
 #include <iostream>
 #include <vector>
-#include "../entidades/exame.hpp
-
-#pragma once
-
+#include "../entidades/exame.hpp"
+#include "../daos/daoManager.hpp"
 
 class ExameManager{
     DaoManager* daoManager;
+    
     public: 
         ExameManager(DaoManager* daoManager);
 

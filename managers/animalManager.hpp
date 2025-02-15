@@ -1,9 +1,15 @@
-#include <string>
-#include "../daos/daoManager.hpp"
-
 #pragma once
+#include <iostream>
+#include <vector>
+#include "../entidades/animal.hpp"
+#include "../daos/daoManager.hpp"
+class AnimalManager {
+    DaoManager* daoManager;
 
-class AnimalManager{
-    public:
+public:
+    AnimalManager(DaoManager* daoM);
 
-}
+    void getAnimal(int idAnimal);
+    void listAnimais();
+
+};

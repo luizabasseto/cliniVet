@@ -37,11 +37,16 @@ void Encaminhamento::setDocumentoRequisicao(std::string documentoRequisicao) {
     this->documentoRequisicao = documentoRequisicao;
 }
 
-// Implementação do método toString
-void Encaminhamento::toString() {
-    std::cout << "ID Encaminhamento: " << id << std::endl
-              << "Documento Requisicao: " << documentoRequisicao << std::endl
-              << "Data Requisicao: " << dataRequisicao.toString() << std::endl;
-    if (recebeRequisicao) std::cout << "Funcionario receptor: " << recebeRequisicao->getIdFuncionario() << std::endl;
-    if (requisitor) std::cout << "Médico requisitor: " << requisitor->getCrmv() << std::endl;
+std::string Encaminhamento::toString() {
+    std::string str;
+    str += "ID Encaminhamento: " + std::to_string(id) + "\n";
+    str += "Documento Requisicao: " + documentoRequisicao + "\n";
+    str += "Data Requisicao: " + dataRequisicao.toString() + "\n"; 
+    if (recebeRequisicao) {
+        str += "Funcionario receptor: " + std::to_string(recebeRequisicao->getIdFuncionario()) + "\n";
+    }    
+    if (requisitor) {
+        str += "Médico requisitor: " + requisitor->getCrmv() + "\n";
+    }
+    return str;
 }

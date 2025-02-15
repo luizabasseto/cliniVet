@@ -5,6 +5,7 @@
 #include "../entidades/exame.hpp"
 #include "../entidades/animal.hpp"
 #include "../daos/daoManager.hpp"
+#include "encaminhamentoManager.hpp"
 
 ConsultaManager::ConsultaManager(DaoManager* daoM) : daoManager(daoM) {}
 
@@ -20,9 +21,9 @@ void ConsultaManager::listConsultas(int idAnimal){
     std::cout << "Dados do animal" << std::endl;
     animal.toString();
     std::cout << "Consultas do animal" << std::endl;
-    for (int i = 0; i < consultasAnimal.size(); i++)
+    for (size_t i = 0; i < consultasAnimal.size(); i++)
     {
-        if (consultasAnimal[i].getIdAnimal() == idAnimal)
+        if (consultasAnimal[i].getAnimal()->getId() == idAnimal)
         {
             consultasAnimal[i].toString();
         }
@@ -31,12 +32,22 @@ void ConsultaManager::listConsultas(int idAnimal){
     
 }
 
-void ConsultaManager::setPedidoExame(int idConsulta, std::string documentoExame, int idRequisitor, int idRecebeRequisicao, Data dataRequisicao){
-    std::vector<Encaminhamento> encaminhamentos = daoManager -> getEncaminhamentoDao()->list();
-    Encaminhamento encaminhamento = {encaminhamentos.size(), dataRequisicao, documentoExame, idRequisitor, idRecebeRequisicao};
-    daoManager -> getEncaminhamentoDao()->create(encaminhamento);
-    std::cout << "Pedido de exame realizado com sucesso!" << std::endl;
+void ConsultaManager::setPedidoExame(int idConsulta, std::string documentoExame, std::string idRequisitor, int idRecebeRequisicao, Data dataRequisicao) {
+    std::vector<Encaminhamento> encaminhamentos = daoManager->getEncaminhamentoDao()->list();
+    
+    Funcionario* funcionario = daoManager->getFuncionarioDao()->retrieve(idRecebeRequisicao);
+    Veterinario* veterinario = daoManager->getVeterinarioDao()->retrieve(idRequisitor);
+    
+    if (funcionario && veterinario) {
+        Encaminhamento encaminhamento = Encaminhamento(encaminhamentos.size(), dataRequisicao, documentoExame, funcionario, veterinario);
+
+        daoManager->getEncaminhamentoDao()->create(encaminhamento);
+        std::cout << "Pedido de exame realizado com sucesso!" << std::endl;
+    } else {
+        std::cerr << "Erro: Funcionário ou Veterinário não encontrado!" << std::endl;
+    }
 }
+
 
 //arrumar
 
