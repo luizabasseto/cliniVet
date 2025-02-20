@@ -4,11 +4,11 @@ ExameDao::ExameDao() {
     animal2 = new Animal(5, "Betinho", Data(10, 8, 2024), 'M');
     animal5 = new Animal(6, "Marcelo", Data(12, 1, 2024), 'M');
 
-    funcionario1 = new Funcionario(1, Data(10, 8, 2024), Data(0, 0, 0), 'A', IMAGINOLOGISTA);
-    funcionario2 = new Funcionario(2, Data(12, 1, 2024), Data(0, 0, 0), 'A', IMAGINOLOGISTA);
+    funcionario1 = new Funcionario(1, "Dr Joao", Data(10, 8, 2024), Data(0, 0, 0), 'A', IMAGINOLOGISTA);
+    funcionario2 = new Funcionario(2, "Dra Amanda", Data(12, 1, 2024), Data(0, 0, 0), 'A', IMAGINOLOGISTA);
 
-    veterinario1 = new Veterinario(1,  Data(5, 6, 2024), Data(0, 0, 0), 'A', MEDICO, "CRMV-1234");
-    veterinario2 = new Veterinario(2,  Data(7, 9, 2024), Data(0, 0, 0), 'A', MEDICO, "CRMV-5678");
+    veterinario1 = new Veterinario(1, "Dr Fabricio", Data(5, 6, 2024), Data(0, 0, 0), 'A', MEDICO, std::string("CRMV-1234"));
+    veterinario2 = new Veterinario(2, "Dra Amanda", Data(7, 9, 2024), Data(0, 0, 0), 'A', MEDICO, std::string("CRMV-5678"));
 
     encaminhamento432 = new Encaminhamento(1, Data(5, 6, 2024), "Encaminhamento para exame de sangue.", funcionario1, veterinario1);
     encaminhamento440 = new Encaminhamento(2, Data(7, 9, 2024), "Encaminhamento para radiografia.", funcionario2, veterinario2);
@@ -39,13 +39,13 @@ void ExameDao::remove(int idExame){
     }
 }
 
-Exame ExameDao::retrieve(int idExame){
+Exame* ExameDao::retrieve(int idExame){
     for (size_t i = 0; i < exames.size(); i++){
         if (exames[i].getIdExame()==idExame){
-            return exames[i];
+            return &exames[i];
         }
     }
-    return Exame();
+    return nullptr;
 }
 
 std::vector<Exame> ExameDao::list(){

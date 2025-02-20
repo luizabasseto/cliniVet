@@ -9,10 +9,7 @@ class ExameManager{
     
     public: 
         ExameManager(DaoManager* daoManager);
-
-        void getExame(int idExame);
-
-        void criarExame();
-
-        void setResultadoExame();
+        void criarExameDePedido(int Encaminhamento, Animal* animal);
+        Exame* getExame(int idExame);
+        void setResultadoExame(int idExame, std::string documentoExame, Data dataRealizado);
 };

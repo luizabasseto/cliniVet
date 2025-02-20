@@ -4,8 +4,9 @@
 #include "animal.hpp"
 #include "data.hpp"
 
-Funcionario::Funcionario(int idFuncionario, Data dataEntrada, Data dataSaida, char status, Cargo cargo){
+Funcionario::Funcionario(int idFuncionario, std::string nome, Data dataEntrada, Data dataSaida, char status, Cargo cargo){
     this->id = idFuncionario;
+    this->nome = nome;
     this->dataEntrada = dataEntrada;
     this->dataSaida = dataSaida;
     this->status = status;
@@ -29,6 +30,14 @@ int Funcionario::getIdFuncionario() {
 
 void Funcionario::setIdFuncionario(int idFuncionario) { 
     this->id = idFuncionario; 
+}
+
+std::string Funcionario::getNome() { 
+    return nome; 
+}
+
+void Funcionario::setNome(std::string nome) { 
+    this->nome = nome; 
 }
 
 Data Funcionario::getDataEntradaFuncionario() { 
@@ -71,6 +80,7 @@ Funcionario* Funcionario::getFuncionario() {
 void Funcionario::setFuncionario(Funcionario* funcionario) {
     if (funcionario != nullptr) {
         this->id = funcionario->getIdFuncionario();
+        this->nome = funcionario->getNome();
         this->dataEntrada = funcionario->getDataEntradaFuncionario();
         this->dataSaida = funcionario->getDataSaidaFuncionario();
         this->status = funcionario->getStatus();
@@ -83,6 +93,7 @@ void Funcionario::setFuncionario(Funcionario* funcionario) {
 std::string Funcionario::toString() {
     std::string str;
     str += "Funcionario ID: " + std::to_string(id) + "\n";
+    str += "Nome: " + nome + "\n";
     str += "Data de Entrada: " + dataEntrada.toString() + "\n";
     str += "Data de Saida: " + dataSaida.toString() + "\n";
     str += "Status: " + std::string(1, status == 'F' ? 'F' : 'N') + "\n"; //feito=F n-não feito

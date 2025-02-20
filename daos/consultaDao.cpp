@@ -4,8 +4,8 @@
 ConsultaDao::ConsultaDao()
     : animal1(1, "Antonia", Data(10, 8, 2024), 'F'),
       animal2(2, "Marcelo", Data(12, 1, 2024), 'M'),
-      veterinario3(1, Data(5, 6, 2024), Data(0, 0, 0), 'A',MEDICO,"CRMV-1234"),
-      veterinario4(2, Data(7, 9, 2024), Data(0, 0, 0), 'A',MEDICO, "CRMV-5678")
+      veterinario3(1, "Dr João", Data(5, 6, 2024), Data(0, 0, 0), 'A',MEDICO, std::string("CRMV-1234")),
+      veterinario4(2, "Dra Amanda", Data(7, 9, 2024), Data(0, 0, 0), 'A',MEDICO, std::string("CRMV-5678"))
 {
     consultas = {
         Consulta(1, Data(15, 8, 2024), "Antonia está com diabetes canina.", 10, 'F', &animal1, &veterinario3),
@@ -40,16 +40,16 @@ void ConsultaDao::remove(int idConsulta){
     }
 }
 
-Consulta ConsultaDao::retrieve(int idConsulta){
+Consulta* ConsultaDao::retrieve(int idConsulta){
     for (size_t i = 0; i < consultas.size(); i++)
     {
         if (consultas[i].getIdConsulta()==idConsulta)
         {
-            return consultas[i];
+            return &consultas[i];
         }
         
     }
-    return Consulta();
+    return nullptr;
 }
 
 std::vector<Consulta> ConsultaDao::list(){

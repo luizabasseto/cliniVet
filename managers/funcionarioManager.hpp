@@ -6,19 +6,20 @@
 
 #pragma once
 
-class FuncionarioManager
-{
+class FuncionarioManager{
     DaoManager *daoManager;
 
 public:
     FuncionarioManager(DaoManager *daoManager);
 
-    void getFuncionario(int idFuncionario);
+    void setFuncionario(Funcionario* funcionario);
 
-    void listFuncionarios();
+    Funcionario* getFuncionario(int idFuncionario);
 
-    void listMedicosVeterinarios();
+    std::vector<Funcionario> listFuncionariosAtivos();
 
-    void listImaginologistas();
+    std::vector<Funcionario> listMedicosVeterinarios();
+
+    std::vector<Funcionario> listImaginologistas();
 
 };

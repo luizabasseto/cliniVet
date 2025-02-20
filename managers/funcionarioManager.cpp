@@ -5,41 +5,45 @@
 #include "../entidades/veterinario.hpp"
 #include "../daos/daoManager.hpp"
 
-FuncionarioManager::FuncionarioManager(DaoManager* daoM) : daoManager(daoM) {}
+FuncionarioManager::FuncionarioManager(DaoManager *daoM) : daoManager(daoM) {}
 
-void FuncionarioManager::getFuncionario(int idFuncionario){
-    Funcionario* funcionario = daoManager->getFuncionarioDao()->retrieve(idFuncionario);
-    std::cout << "Dados do funcionario selecionado:" << std::endl;
-    std::cout << funcionario->toString();
+Funcionario* FuncionarioManager::getFuncionario(int idFuncionario){
+    Funcionario *funcionario = daoManager->getFuncionarioDao()->retrieve(idFuncionario);
+    return funcionario;
 }
 
+//ta faltando o SET
 
-void FuncionarioManager::listFuncionarios() {
+std::vector<Funcionario> FuncionarioManager::listFuncionariosAtivos(){
     std::vector<Funcionario> funcionarios = daoManager->getFuncionarioDao()->list();
-    std::cout << "Funcionários cadastrados:" << std::endl;
-    for (Funcionario& funcionario : funcionarios) {
-        std::cout << funcionario.toString() << std::endl;
+    std::vector<Funcionario> ativos;
+    for (Funcionario &f : funcionarios){
+        if (f.getStatus() == 'A'){
+            ativos.push_back(f);
+        }
     }
+    return ativos;
 }
 
-void FuncionarioManager::listMedicosVeterinarios() {
+std::vector<Funcionario> FuncionarioManager::listMedicosVeterinarios(){
     std::vector<Veterinario> medicos = daoManager->getVeterinarioDao()->list();
+    std::vector<Funcionario> veterinarios;
     std::cout << "Médicos Veterinários disponíveis:" << std::endl;
-    for (Veterinario& medico : medicos) {
-        if (medico.getStatus() == 'A') {
-            std::cout << medico.toString() << std::endl;
+    for (Veterinario &medico : medicos){
+        if (medico.getStatus() == 'A'){
+            veterinarios.push_back(medico);
         }
     }
+    return veterinarios;
 }
 
-void FuncionarioManager::listImaginologistas() {
+std::vector<Funcionario> FuncionarioManager::listImaginologistas(){
     std::vector<Funcionario> funcionarios = daoManager->getFuncionarioDao()->list();
-    std::cout << "Lista de Imaginologistas:" << std::endl;
-    for (Funcionario& f : funcionarios) {
-        if (f.getCargo() == IMAGINOLOGISTA) {
-            std::cout << f.toString() << std::endl;
+    std::vector<Funcionario> imaginologistas;
+    for (Funcionario &f : funcionarios){
+        if (f.getCargo() == IMAGINOLOGISTA && f.getStatus() == 'A'){
+            imaginologistas.push_back(f);
         }
     }
+    return imaginologistas;
 }
-
-

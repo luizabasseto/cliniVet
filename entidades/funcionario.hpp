@@ -18,6 +18,7 @@ std::string toStringCargo(Cargo cargo);
 class Funcionario{
 private:
     int id;
+    std::string nome; //originalmente, esse atributo vem de "Pessoa";
     Data dataEntrada;
     Data dataSaida;
     char status;
@@ -25,9 +26,12 @@ private:
     
 
 public:
-    Funcionario(int idFuncionario, Data dataEntrada, Data dataSaida, char status, Cargo cargo);
+    Funcionario(int idFuncionario, std::string nome, Data dataEntrada, Data dataSaida, char status, Cargo cargo);
     virtual int getIdFuncionario();
     virtual void setIdFuncionario(int idFuncionariod);
+
+    virtual std::string getNome();
+    virtual void setNome(std::string nome);
 
     virtual Data getDataEntradaFuncionario();
     virtual void setDataEntradaFuncionario(Data dataEntrada);

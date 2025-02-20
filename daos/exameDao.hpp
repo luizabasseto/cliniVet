@@ -28,6 +28,6 @@ public:
     void create(Exame exame);
     void update(int id, Exame exameAtualizado);
     void remove(int id);
-    Exame retrieve(int id);
+    Exame* retrieve(int id);
     std::vector<Exame> list();
 };

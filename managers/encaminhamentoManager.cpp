@@ -12,19 +12,35 @@ void EncaminhamentoManager::createEncaminhamento(Data dataRequisicao, std::strin
     std::cout << "Encaminhamento criado com sucesso!\n";
 }
 
-void EncaminhamentoManager::listEncaminhamentos() {
+std::vector<Encaminhamento> EncaminhamentoManager::listEncaminhamentos() {
     std::vector<Encaminhamento> encaminhamentos = daoManager->getEncaminhamentoDao()->list();
     if (encaminhamentos.empty()) {
         std::cout << "Nenhum encaminhamento cadastrado.\n";
-        return;
+        return std::vector<Encaminhamento>();
     }
-
-    std::cout << "Lista de Encaminhamentos:\n";
-    for (Encaminhamento& e : encaminhamentos) {
-        std::cout << e.toString() << std::endl;
-    }
+    
+    return encaminhamentos;
 }
 
 Encaminhamento* EncaminhamentoManager::getEncaminhamento(int idEncaminhamento) {
     return daoManager->getEncaminhamentoDao()->retrieve(idEncaminhamento);
 }
+
+std::vector<Exame> EncaminhamentoManager::listExamesDoEncaminhamento(int idEncaminhento){
+    std::vector<Exame> exames = daoManager->getExameDao()->list();
+    std::vector<Exame> examesSelecionados;
+
+    if (exames.empty()) {
+        std::cout << "Nenhum exame cadastrado para este encaminhamento." << std::endl;
+        return examesSelecionados;
+    }
+    
+    for (Exame exame : exames) {  
+        if (exame.getEncaminhamento()->getIdEncaminhamento() == idEncaminhento) {
+            examesSelecionados.push_back(exame);
+        }
+    }
+
+    return examesSelecionados;
+}
+

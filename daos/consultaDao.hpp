@@ -21,7 +21,7 @@ public:
     void create(Consulta consulta);
     void update(int idConsulta, Consulta consulta);
     void remove(int idConsulta);
-    Consulta retrieve(int idConsulta);
+    Consulta* retrieve(int idConsulta);
     std::vector<Consulta> list();
 };
 

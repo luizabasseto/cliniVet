@@ -7,8 +7,8 @@
 class FuncionarioDao{
 
     std::vector<Funcionario> funcionarios = {
-        Funcionario(3, Data(15, 8, 2015), Data(0, 0, 0), 'A',IMAGINOLOGISTA),
-        Funcionario(4, Data(20, 5, 2017), Data(0, 0, 0), 'A',ADMINISTRATIVO)
+        Funcionario(3, "Everton", Data(15, 8, 2015), Data(0, 0, 0), 'A', IMAGINOLOGISTA),
+        Funcionario(4, "Juliane", Data(20, 5, 2017), Data(0, 0, 0), 'A', ADMINISTRATIVO)
     };
     public:
         void create(Funcionario funcionario);

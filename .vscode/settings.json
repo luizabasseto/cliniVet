@@ -99,7 +99,8 @@
     "sstream": "cpp",
     "stdexcept": "cpp",
     "streambuf": "cpp",
-    "typeinfo": "cpp"
+    "typeinfo": "cpp",
+    "ctime": "cpp"
   },
   "nuxt.isNuxtApp": false,
   "makefile.configureOnOpen": true

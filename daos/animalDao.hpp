@@ -13,6 +13,6 @@ class AnimalDao{
         void create(Animal animal);
         void update(int idAnimal, Animal animal);
         void remove(int idAnimal);
-        Animal retrieve(int idAnimal);
+        Animal* retrieve(int idAnimal);
         std::vector<Animal> list();
 };

@@ -5,27 +5,26 @@
 
 ExameManager::ExameManager(DaoManager* daoM) : daoManager(daoM) {}
 
-void ExameManager::getExame(int idExame){
-    Exame exame = daoManager->getExameDao()->retrieve(idExame);
-    std::cout<<"Dados do exame selecionado:" << std::endl;
-    exame.toString();  
+Exame* ExameManager::getExame(int idExame){
+    Exame* exame = daoManager->getExameDao()->retrieve(idExame);
+    return exame;  
 }
 
-//esse método é usado para criar um exame quando o encaminhamento é feito
-void Exame::criarExame() {
-    this->resultado = "";
-    this->status = 'N'; // N = Não feito
-    std::cout << "Exame criado com sucesso!" << std::endl;
-}
-
-//esse método é usado quando o resultado ficou pronto
-void Exame::setResultadoExame() {
-    if (status == 'N') {
-        std::cout << "Digite o resultado do exame: ";
-        std::getline(std::cin, resultado);
-        status = 'F'; // F = Feito
-        std::cout << "Resultado registrado com sucesso!" << std::endl;
+//na
+void ExameManager::setResultadoExame(int idExame, std::string documentoExame, Data dataRealizado) {
+    Exame* exame = daoManager->getExameDao()->retrieve(idExame);
+    if (exame->getStatus() == 'N') {
+        exame->setDocumentoExame(documentoExame);
+        exame->setStatus('F'); // F = Feito
+        exame->setDataExame(dataRealizado);
     } else {
         std::cout << "Este exame já foi registrado." << std::endl;
     }
+}
+
+void ExameManager::criarExameDePedido(int idEncaminhamento, Animal* animal){
+    std::vector<Exame> exames = daoManager->getExameDao()->list();
+    Encaminhamento* encaminhamento = daoManager->getEncaminhamentoDao()->retrieve(idEncaminhamento);
+    Exame exame = Exame(exames.size(), {0,0,0}, animal, encaminhamento, "Não realizado", 'N');
+    daoManager->getExameDao()->create(exame);
 }

@@ -27,13 +27,13 @@ void AnimalDao::remove(int idAnimal){
     }
 }
 
-Animal AnimalDao::retrieve(int idAnimal) {
+Animal* AnimalDao::retrieve(int idAnimal) {
     for (size_t i = 0; i < animais.size(); i++) {
         if (animais[i].getId() == idAnimal) {
-            return animais[i]; 
+            return &animais[i]; 
         }
     }
-    return Animal(); 
+    return nullptr; 
 }
 
 

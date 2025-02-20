@@ -9,17 +9,17 @@
 class Exame{
     int id;
     Data dataRealizado;
-    std::string resultado;
+    std::string documentoExame;
     char status;
     Animal* animal; 
     Encaminhamento* encaminhamento;
     
 
 public:
-    Exame(int idExame, Data dataRealizado, Animal* animal, Encaminhamento* encaminhamento, std::string resultado, char status);
+    Exame(int idExame, Data dataRealizado, Animal* animal, Encaminhamento* encaminhamento, std::string documentoExame, char status);
     Exame();
     int getIdExame();
-    void setIdExame(int idExamed);
+    void setIdExame(int idExame);
 
     Data getDataExame();
     void setDataExame(Data dataRealizado);
@@ -30,8 +30,8 @@ public:
     Encaminhamento* getEncaminhamento();
     void setEncaminhamento(Encaminhamento* encaminhamento);
 
-    std::string getResultado();
-    void setResultado(std::string peso);
+    std::string getDocumentoExame();
+    void setDocumentoExame(std::string documentoExame);
 
     char getStatus();
     void setStatus(char status);
@@ -39,8 +39,5 @@ public:
     void toString();
     Exame* getExame();
     void setExame(Exame* exame);
-
-    void criarExame(); 
-    void setResultadoExame(); 
 
 };

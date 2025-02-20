@@ -7,71 +7,60 @@
 #include "../daos/daoManager.hpp"
 #include "encaminhamentoManager.hpp"
 
-ConsultaManager::ConsultaManager(DaoManager* daoM) : daoManager(daoM) {}
+ConsultaManager::ConsultaManager(DaoManager *daoM, ExameManager* exameManager) : daoManager(daoM), exameManager(exameManager) {}
 
-void ConsultaManager::getConsulta(int idConsulta){
-    Consulta consulta = daoManager->getConsultaDao()->retrieve(idConsulta);
-    std::cout<<"Dados da consulta selecionada:";
-    consulta.toString();  
+Consulta ConsultaManager::getConsulta(int idConsulta)
+{
+    Consulta* consulta = daoManager->getConsultaDao()->retrieve(idConsulta);
+    return *consulta;
 }
 
-void ConsultaManager::listConsultas(int idAnimal){
-    std::vector<Consulta> consultasAnimal = daoManager->getConsultaDao()->list();
-    Animal animal = daoManager->getAnimalDao()->retrieve(idAnimal);
+std::vector<Consulta> ConsultaManager::listConsultas(int idAnimal)
+{
+    std::vector<Consulta> consultas = daoManager->getConsultaDao()->list();
+    Animal* animal = daoManager->getAnimalDao()->retrieve(idAnimal);
     std::cout << "Dados do animal" << std::endl;
-    animal.toString();
+    animal->toString();
+    std::vector<Consulta> consultasAnimal;
     std::cout << "Consultas do animal" << std::endl;
-    for (size_t i = 0; i < consultasAnimal.size(); i++)
+    for (size_t i = 0; i < consultas.size(); i++)
     {
-        if (consultasAnimal[i].getAnimal()->getId() == idAnimal)
+        if (consultas[i].getAnimal()->getId() == idAnimal)
         {
-            consultasAnimal[i].toString();
+            consultasAnimal.push_back(consultas[i]);
         }
-        
     }
-    
+    return consultasAnimal;
 }
 
-void ConsultaManager::setPedidoExame(int idConsulta, std::string documentoExame, std::string idRequisitor, int idRecebeRequisicao, Data dataRequisicao) {
+void ConsultaManager::setPedidoExame(int idConsulta, std::string documentoExame, Veterinario *requisitor, Funcionario *recebeRequisicao, Data dataRequisicao, int quantExames)
+{
     std::vector<Encaminhamento> encaminhamentos = daoManager->getEncaminhamentoDao()->list();
-    
-    Funcionario* funcionario = daoManager->getFuncionarioDao()->retrieve(idRecebeRequisicao);
-    Veterinario* veterinario = daoManager->getVeterinarioDao()->retrieve(idRequisitor);
-    
-    if (funcionario && veterinario) {
-        Encaminhamento encaminhamento = Encaminhamento(encaminhamentos.size(), dataRequisicao, documentoExame, funcionario, veterinario);
-
-        daoManager->getEncaminhamentoDao()->create(encaminhamento);
-        std::cout << "Pedido de exame realizado com sucesso!" << std::endl;
-    } else {
-        std::cerr << "Erro: Funcionário ou Veterinário não encontrado!" << std::endl;
+    Encaminhamento encaminhamento = Encaminhamento(encaminhamentos.size(), dataRequisicao, documentoExame, recebeRequisicao, requisitor);
+    daoManager->getEncaminhamentoDao()->create(encaminhamento);
+    std::vector<Exame> exames = daoManager->getExameDao()->list();
+    Consulta* consulta = daoManager->getConsultaDao()->retrieve(idConsulta);
+    Animal* animal = consulta->getAnimal();
+    for (int i = 0; i < quantExames; i++)
+    {
+        
+        exameManager->criarExameDePedido(encaminhamento.getIdEncaminhamento(), animal);
     }
+    
+
+    std::cout << "Pedido de exame realizado com sucesso!" << std::endl;
 }
 
-
-//arrumar
-
-void ConsultaManager::cancelarConsulta(int idConsulta) {
-    // if (status != 'C') {
-    //     status = 'C'; // C = Cancelada
-    //     std::cout << "Consulta ID " << id << " foi cancelada." << std::endl;
-    // } else {
-    //     std::cout << "A consulta já está cancelada." << std::endl;
-    // }
+void ConsultaManager::encerrarConsulta(int idConsulta)
+{
+    Consulta* consulta = daoManager->getConsultaDao()->retrieve(idConsulta);
+    consulta->setStatus('F');
+    daoManager->getConsultaDao()->update(idConsulta, *consulta);
 }
 
-void ConsultaManager::remarcarConsulta(Data novaData) {
-    // if (status != 'C' && status != 'F') {
-    //     horarioConsulta = novaData;
-    //     std::cout << "Consulta ID " << id << " foi remarcada para " << novaData.dia << "/" << novaData.mes << "/" << novaData.ano << "." << std::endl;
-    // } else {
-    //     std::cout << "Consulta não pode ser remarcada pois está cancelada ou finalizada." << std::endl;
-    // }
+void ConsultaManager::setConsulta(int idConsulta, std::string anamnese, float peso){
+    Consulta* consulta = daoManager->getConsultaDao()->retrieve(idConsulta);
+    consulta->setAnamnese(anamnese);
+    consulta->setPeso(peso);
+    daoManager->getConsultaDao()->update(idConsulta, *consulta);
 }
-
-void ConsultaManager::encerrarConsulta(int idConsulta) {
-    Consulta consulta = daoManager->getConsultaDao()->retrieve(idConsulta);
-    consulta.setStatus('F');
-    daoManager->getConsultaDao()->update(idConsulta, consulta);
-}
-

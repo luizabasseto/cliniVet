@@ -10,6 +10,7 @@ public:
     EncaminhamentoManager(DaoManager* daoManager);
 
     void createEncaminhamento(Data dataRequisicao, std::string documentoRequisicao, Funcionario* recebeRequisicao, Veterinario* requisitor);
-    void listEncaminhamentos();
+    std::vector<Encaminhamento> listEncaminhamentos();
     Encaminhamento* getEncaminhamento(int idEncaminhamento);
+    std::vector<Exame> listExamesDoEncaminhamento(int idEncaminhamento);
 };

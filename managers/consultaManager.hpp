@@ -3,23 +3,29 @@
 #include "../entidades/consulta.hpp"
 #include "../daos/daoManager.hpp"
 #include "../entidades/data.hpp"
+#include "../entidades/funcionario.hpp"
+#include "../entidades/veterinario.hpp"
+#include "./exameManager.hpp"
 
 #pragma once
 
 class ConsultaManager{
     DaoManager* daoManager;
+    ExameManager* exameManager;
     public: 
-        ConsultaManager(DaoManager* daoManager);
+        ConsultaManager(DaoManager* daoManager, ExameManager* exameManager);
 
-        void getConsulta(int idConsulta);
+        Consulta getConsulta(int idConsulta);
+        
+        void setConsulta(int idConsulta, std::string anamnese, float peso);
 
-        void listConsultas(int idAnimal);
+        std::vector<Consulta> listConsultas(int idAnimal);
 
         void checarAgenda(std::string tipoVisao);
 
         //Receita criarReceita(int idReceita);
 
-        void setPedidoExame(int idConsulta, std::string documentoExame, std::string idRequisitor, int idRecebeRequisicao, Data dataRequisicao);
+        void setPedidoExame(int idConsulta, std::string documentoExame, Veterinario* requisitor, Funcionario* recebeRequisicao, Data dataRequisicao, int quantExames);
         
         void cancelarConsulta(int idConsulta);
         

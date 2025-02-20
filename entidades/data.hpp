@@ -15,5 +15,6 @@ class Data{
         Data();
     // Função para converter a data para string
     std::string toString();
+    void obterDataAtual();
 };
 #endif // DATA_HPP

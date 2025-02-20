@@ -4,12 +4,12 @@
 #include "encaminhamento.hpp"
 #include "animal.hpp"
 
-Exame::Exame(int idExame, Data dataRealizado, Animal* animal, Encaminhamento* encaminhamento, std::string resultado, char status) {
+Exame::Exame(int idExame, Data dataRealizado, Animal* animal, Encaminhamento* encaminhamento, std::string documentoExame, char status) {
     this->id = idExame; 
     this->dataRealizado = dataRealizado;
     this->animal = animal;
     this->encaminhamento = encaminhamento;
-    this->resultado = resultado;
+    this->documentoExame = documentoExame;
     this->status = status;
 }
 
@@ -18,7 +18,7 @@ Exame::Exame(){
     this->dataRealizado = {01,01,2001};
     this->animal = animal;
     this->encaminhamento = encaminhamento;
-    this->resultado = "resultado";
+    this->documentoExame = "resultado";
     this->status = 'N';
 }
 
@@ -54,12 +54,12 @@ void Exame::setEncaminhamento(Encaminhamento* encaminhamento) {
     this->encaminhamento = encaminhamento;
 }
 
-std::string Exame::getResultado() { 
-    return resultado; 
+std::string Exame::getDocumentoExame() { 
+    return documentoExame; 
 }
 
-void Exame::setResultado(std::string resultado) { 
-    this->resultado = resultado; 
+void Exame::setDocumentoExame(std::string documentoExame) { 
+    this->documentoExame = documentoExame; 
 }
 
 char Exame::getStatus() { 
@@ -83,6 +83,6 @@ void Exame::toString() {
     } else {
         std::cout << "Animal: Nenhum animal associado." << std::endl;
     }
-    std::cout << "Resultado: " << resultado << std::endl;
+    std::cout << "Documento do exame: " << documentoExame << std::endl;
     std::cout << "Status: " << (status == 'F' ? "Feito" : "Não feito") << std::endl;
 }
