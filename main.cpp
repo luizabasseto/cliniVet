@@ -46,19 +46,26 @@ int main()
                 {
                     std::cout << "Digite o id da consulta que voce deseja realizar" << std::endl;
                     std::cout << ">> ";
-                    std::cin >> idConsulta;
+                    std::cin >> idConsulta; 
                     std::cin.ignore();
                     std::vector<Consulta> consultas = daoManager.getConsultaDao()->list();
-                    for (std::size_t i = 0; i < consultas.size(); i++)
+                    if (!std::cin.fail())
                     {
-                        if (idConsulta == consultas[i].getIdConsulta())
+                        for (std::size_t i = 0; i < consultas.size(); i++)
                         {
-                            achou = 1;
+                            if (idConsulta == consultas[i].getIdConsulta())
+                            {
+                                achou = 1;
+                            }
                         }
-                    }
-                    if (!achou)
-                    {
-                        std::cout << "Consulta não encontrada, digite novamente!!!!" << std::endl;
+                        if (!achou)
+                        {
+                            std::cout << "Consulta não encontrada, digite novamente!!!!" << std::endl;
+                        }
+                    }else{
+                        std::cin.clear();
+                        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+                        std::cout << "Digite somente números" << std::endl;
                     }
                 }
                 Consulta consulta = consultaManager.getConsulta(idConsulta);
@@ -99,13 +106,20 @@ int main()
                     std::cout << "Digite 0 para 'não' e 1 para 'sim'" << std::endl;
                     std::cout << ">> ";
                     std::cin >> i;
-                    if (i != 0 && i != 1)
-                    {
-                        std::cout << "Digito inválido" << std::endl;
-                    }
-                    else
-                    {
-                        achou = 1;
+                    if (!std::cin.fail()){
+
+                        if (i != 0 && i != 1)
+                        {
+                            std::cout << "Digito inválido" << std::endl;
+                        }
+                        else
+                        {
+                            achou = 1;
+                        }
+                    }else{
+                        std::cin.clear();
+                        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+                        std::cout << "Digite somente números" << std::endl;
                     }
                 }
 
@@ -197,7 +211,8 @@ int main()
 
                     consultaManager.setPedidoExame(idConsulta, documentoExame, requisitor, requisitado, dataAtual, quantidadeExames);
                 }
-
+                std::cout<< std::endl;
+                std::cout << "Consulta encerrada" << std::endl;
                 consultaManager.encerrarConsulta(idConsulta);
             }
 
