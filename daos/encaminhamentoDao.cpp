@@ -8,9 +8,7 @@ EncaminhamentoDao::EncaminhamentoDao()
 {
     encaminhamentos = {
         Encaminhamento(1, Data(15, 8, 2024), "Requisito um exame de sangue para o pet Filipo.", &funcionario1, &veterinario2),
-        Encaminhamento(2, Data(20, 1, 2025), "Requisito uma ultrassonografia abdominal P.A. para a pet Amanda.", &funcionario2, &veterinario1),
-        Encaminhamento(3, Data(3, 2, 2025), "Requisito uma radiografia de crânio para a pet Jussara.", &funcionario1, &veterinario2),
-        Encaminhamento(4, Data(8, 2, 2025), "Requisito uma biópsia ecoguiada para o Rex.", &funcionario2, &veterinario1)};
+        Encaminhamento(2, Data(20, 1, 2025), "Requisito uma ultrassonografia abdominal P.A. para a pet Amanda.", &funcionario2, &veterinario1),};
 }
 
 void EncaminhamentoDao::create(Encaminhamento encaminhamento){

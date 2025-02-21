@@ -1,5 +1,13 @@
 #include "veterinarioDao.hpp"
 
+VeterinarioDao::VeterinarioDao(){
+    veterinarios = {
+        Veterinario(5, "Alane", Data(20, 8, 2017), Data(0, 0, 0), 'A', MEDICO, "1234"),
+        Veterinario(3, "Victoria", Data(10, 2, 2015), Data(0, 0, 0), 'A', MEDICO, "8888")
+    };
+};
+
+
 void VeterinarioDao::create(Veterinario veterinario){
     veterinarios.push_back(veterinario);
 }

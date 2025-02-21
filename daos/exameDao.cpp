@@ -15,7 +15,7 @@ ExameDao::ExameDao() {
 
     exames = {
         Exame(1, Data(15, 8, 2024), animal2, encaminhamento432, "Hemograma completo", 'F'),
-        Exame(2, Data(20, 1, 2025), animal5, encaminhamento440, "Radiografia de tórax", 'F')
+        Exame(2, Data(20, 1, 2025), animal5, encaminhamento440, "Radiografia de tórax", 'F'),
     };
 }
 

@@ -1,16 +1,20 @@
 #include <vector>
-#include "../entidades/veterinario.hpp"  
+#include "../entidades/veterinario.hpp"
 
 #pragma once
 
-class VeterinarioDao {
+class VeterinarioDao
+{
+
 private:
     std::vector<Veterinario> veterinarios;
 
 public:
+    VeterinarioDao();
+    ~VeterinarioDao();
     void create(Veterinario veterinario);
     void update(std::string crmv, Veterinario veterinarioAtualizado);
     void remove(std::string crmv);
-    Veterinario* retrieve(std::string crmv);
+    Veterinario *retrieve(std::string crmv);
     std::vector<Veterinario> list();
 };
