@@ -46,7 +46,7 @@ int main()
                 {
                     std::cout << "Digite o id da consulta que voce deseja realizar" << std::endl;
                     std::cout << ">> ";
-                    std::cin >> idConsulta; 
+                    std::cin >> idConsulta;
                     std::cin.ignore();
                     std::vector<Consulta> consultas = daoManager.getConsultaDao()->list();
                     if (!std::cin.fail())
@@ -62,7 +62,9 @@ int main()
                         {
                             std::cout << "Consulta não encontrada, digite novamente!!!!" << std::endl;
                         }
-                    }else{
+                    }
+                    else
+                    {
                         std::cin.clear();
                         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
                         std::cout << "Digite somente números" << std::endl;
@@ -106,7 +108,8 @@ int main()
                     std::cout << "Digite 0 para 'não' e 1 para 'sim'" << std::endl;
                     std::cout << ">> ";
                     std::cin >> i;
-                    if (!std::cin.fail()){
+                    if (!std::cin.fail())
+                    {
 
                         if (i != 0 && i != 1)
                         {
@@ -116,7 +119,9 @@ int main()
                         {
                             achou = 1;
                         }
-                    }else{
+                    }
+                    else
+                    {
                         std::cin.clear();
                         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
                         std::cout << "Digite somente números" << std::endl;
@@ -197,21 +202,29 @@ int main()
                     Data dataAtual;
                     dataAtual.obterDataAtual();
 
+                    achou = 0;
                     int quantidadeExames = 0;
-                    std::cout << "Insira a quantidade de exames: " << std::endl;
-                    std::cout << ">> ";
-                    std::cin >> quantidadeExames;
-
-                    while (quantidadeExames <= 0)
+                    while (!achou)
                     {
-                        std::cout << "Insira uma quantidade de exames válida: " << std::endl;
+                        std::cout << "Insira a quantidade de exames: " << std::endl;
                         std::cout << ">> ";
                         std::cin >> quantidadeExames;
+
+                        if (std::cin.fail())
+                        {
+                            std::cin.clear();
+                            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+                            std::cout << "Quantidade inválido!!!!" << std::endl;
+                        }
+                        else
+                        {
+                            achou = 1;
+                        }
                     }
 
                     consultaManager.setPedidoExame(idConsulta, documentoExame, requisitor, requisitado, dataAtual, quantidadeExames);
                 }
-                std::cout<< std::endl;
+                std::cout << std::endl;
                 std::cout << "Consulta encerrada" << std::endl;
                 consultaManager.encerrarConsulta(idConsulta);
             }
@@ -233,16 +246,27 @@ int main()
                         std::cin >> idEncaminhamento;
                         std::cin.ignore();
                         std::vector<Encaminhamento> encaminhamentos = daoManager.getEncaminhamentoDao()->list();
-                        for (std::size_t i = 0; i < encaminhamentos.size(); i++)
+
+                        if (!std::cin.fail())
                         {
-                            if (idEncaminhamento == encaminhamentos[i].getIdEncaminhamento())
+                            for (std::size_t i = 0; i < encaminhamentos.size(); i++)
                             {
-                                achou = 1;
+                                if (idEncaminhamento == encaminhamentos[i].getIdEncaminhamento())
+                                {
+                                    achou = 1;
+                                }
                             }
+                            if (!achou)
+                            {
+                                std::cout << "Encaminhamento inválido!!!!" << std::endl;
+                            }
+
                         }
-                        if (!achou)
+                        else
                         {
-                            std::cout << "Encaminhamento inválido!!!!" << std::endl;
+                            std::cin.clear();
+                            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+                            std::cout << "Digite somente números" << std::endl;
                         }
                     }
 
