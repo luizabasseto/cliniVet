@@ -25,6 +25,7 @@ int main()
         int escolha = -1;
         while (escolha != 0)
         {
+            std::cout << "----------------------------------" << std::endl;
             std::cout << "Escolha uma das opcoes abaixo" << std::endl;
             std::cout << "1 - Realizar consulta" << std::endl;
             std::cout << "2 - Inserir resultado de exame" << std::endl;
@@ -235,7 +236,7 @@ int main()
                     std::cout << "---- Exames ----" << std::endl;
                     for (size_t i = 0; i < listaExames.size(); i++)
                     {
-                        std::cout << ":. " << listaExames[i].getIdExame() << " - " << listaExames[i].getAnimalDoExame()->getNome() << " - " << listaExames[i].getStatus();
+                        std::cout << ":. " << listaExames[i].getIdExame() << " - " << listaExames[i].getAnimalDoExame()->getNome() << " - " << listaExames[i].getStatus() << std::endl;
                     }
                     std::cout << std::endl;
 
@@ -292,7 +293,6 @@ int main()
                     exameManager.setResultadoExame(idExame, resultado, dataRealizado);
                     std::cout << "Resultado inserido com sucesso!" << std::endl;
 
-                    int op = 0;
                     std::cout << "Digite o valor: " << std::endl;
                     std::cout << "1 - Continuar inserindo resultados de exames;" << std::endl;
                     std::cout << "0 - Voltar ao menu principal;" << std::endl;

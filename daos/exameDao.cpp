@@ -14,8 +14,12 @@ ExameDao::ExameDao() {
     encaminhamento440 = new Encaminhamento(2, Data(7, 9, 2024), "Encaminhamento para radiografia.", funcionario2, veterinario2);
 
     exames = {
-        Exame(1, Data(15, 8, 2024), animal2, encaminhamento432, "Hemograma completo", 'F'),
-        Exame(2, Data(20, 1, 2025), animal5, encaminhamento440, "Radiografia de tórax", 'F'),
+        Exame(1, Data(15, 8, 2024), animal2, encaminhamento432, "Hemograma completo", 'N'),
+        Exame(2, Data(20, 1, 2025), animal5, encaminhamento440, "Radiografia de tórax", 'N'),
+        Exame(3, Data(15, 2, 2023), animal2, encaminhamento432, "Ultrassom", 'N'),
+        Exame(4, Data(20, 3, 2025), animal5, encaminhamento440, "Radiografia da pata", 'N'),
+        Exame(5, Data(11, 5, 2023), animal2, encaminhamento432, "Exames de sangue", 'F'),
+        Exame(6, Data(21, 8, 2025), animal5, encaminhamento440, "Colonoscopia", 'N'),
     };
 }
 
